@@ -9,11 +9,17 @@
     <script type="text/javascript" src="/webiopi.js"></script>
     <script type="text/javascript">
     webiopi().ready(function() {
-        // Create a "Light" labeled button for GPIO 23
-        var lightPcRoom = webiopi().createGPIOButton(23, "Light PC Room (SW10 GPIO23)");
+		// ボタン追加
+    	var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
+    	var btnAirConON    = webiopi().createGPIOButton(6 , "Air-Con ON    (SW6  IO6 )");
+    	var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
+    	var btnTvPower     = webiopi().createGPIOButton(4 , "TV Power      (SW1  IO4 )");
 
         // Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(lightPcRoom);
+        $("#controls").append(btnPcRoomLight);
+        $("#controls").append(btnAirConON);
+        $("#controls").append(btnAirConOFF);
+        $("#controls").append(btnTvPower);
 
         // Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
@@ -22,11 +28,11 @@
 
     </script>
 
-<style type="text/css">
-        lightPcRoom {
+	<style type="text/css">
+        btnPcRoomLight {
             display: block;
             margin: 5px 5px 5px 5px;
-            width: 160px;
+            width: 700px;
             height: 45px;
             font-size: 24pt;
             font-weight: bold;

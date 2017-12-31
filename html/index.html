@@ -7,46 +7,26 @@
     <title>Smart Home</title>
 
     <script type="text/javascript" src="/webiopi.js"></script>
+
     <script type="text/javascript">
-    webiopi().ready(function() {
+	    webiopi().ready(function() {
 		// ボタン追加
-    	var btnTvPower     = webiopi().createGPIOButton(4 , "TV Power      (SW1  IO4 )");
-    	var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
-    	var btnAirConON    = webiopi().createGPIOButton(6 , "Air-Con ON    (SW6  IO6 )");
+    	var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
     	var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
+    	var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
+    	var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
 
         // Append button to HTML element with ID="controls" using jQuery
-        $("#cntrlTvPower").append(btnTvPower);
-        $("#cntrlPcRoomLight").append(btnPcRoomLight);
         $("#cntrlAirConON").append(btnAirConON);
         $("#cntrlAirConOFF").append(btnAirConOFF);
+        $("#cntrlPcRoomLight").append(btnPcRoomLight);
+        $("#cntrlTvPower").append(btnTvPower);
 
         // Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
         webiopi().refreshGPIO(true);
-    });
-
+	    });
     </script>
-
-	<style type="text/css">
-        btnTvPower {
-            display: block;
-            margin: 5px 5px 5px 5px;
-            width: 700px;
-            height: 45px;
-            font-size: 24pt;
-            font-weight: bold;
-            color: white;
-        }
-
-        #gpio4.LOW {
-            background-color: Black;
-        }
-
-        #gpio4.HIGH {
-            background-color: Blue;
-        }
-    </style>
 
 </head>
 

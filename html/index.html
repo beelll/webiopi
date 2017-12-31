@@ -16,10 +16,10 @@
     	var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
 
         // Append button to HTML element with ID="controls" using jQuery
+        $("#cntrlTvPower").append(btnTvPower);
         $("#cntrlPcRoomLight").append(btnPcRoomLight);
         $("#cntrlAirConON").append(btnAirConON);
         $("#cntrlAirConOFF").append(btnAirConOFF);
-        $("#cntrlTvPower").append(btnTvPower);
 
         // Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
@@ -39,11 +39,11 @@
             color: white;
         }
 
-        #gpio23.LOW {
+        #gpio4.LOW {
             background-color: Black;
         }
 
-        #gpio23.HIGH {
+        #gpio4.HIGH {
             background-color: Blue;
         }
     </style>
@@ -52,10 +52,10 @@
 
 <body>
 
+<div id="cntrlTvPower" align="center"></div>
 <div id="cntrlPcRoomLight" align="center"></div>
 <div id="cntrlAirConON" align="center"></div>
 <div id="cntrlAirConOFF" align="center"></div>
-<div id="cntrlTvPower" align="center"></div>
 
 </body>
 </html>

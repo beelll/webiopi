@@ -16,10 +16,10 @@
     	var btnTvPower     = webiopi().createGPIOButton(4 , "TV Power      (SW1  IO4 )");
 
         // Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(btnPcRoomLight);
-        $("#controls").append(btnAirConON);
-        $("#controls").append(btnAirConOFF);
-        $("#controls").append(btnTvPower);
+        $("#cntrlPcRoomLight").append(btnPcRoomLight);
+        $("#cntrlAirConON").append(btnAirConON);
+        $("#cntrlAirConOFF").append(btnAirConOFF);
+        $("#cntrlTvPower").append(btnTvPower);
 
         // Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
@@ -52,7 +52,10 @@
 
 <body>
 
-<div id="controls" align="center"></div>
+<div id="cntrlPcRoomLight" align="center"></div>
+<div id="cntrlAirConON" align="center"></div>
+<div id="cntrlAirConOFF" align="center"></div>
+<div id="cntrlTvPower" align="center"></div>
 
 </body>
 </html>

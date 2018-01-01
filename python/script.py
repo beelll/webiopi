@@ -58,16 +58,15 @@ def loop():
 
 
 @webiopi.macro
-def setGpio(value):
-    print("Call setGpio")
+def setGpio(ioNum):
     print(value)
 
-    #if value == "23":
-    GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.HIGH)
-    print("High")
-    webiopi.sleep(1)
-    GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.LOW)
+    #if ioNum == "23":
+    GPIO.digitalWrite(int(ioNum), GPIO.LOW)
     print("LOW")
+    webiopi.sleep(1)
+    GPIO.digitalWrite(int(ioNum), GPIO.HIGH)
+    print("High")
     #webiopi.sleep(1)
         #subprocess.call(["sudo", "./home/pi/Desktop/Study/Servomotor/turnLeft"])
     #else:

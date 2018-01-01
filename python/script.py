@@ -59,12 +59,13 @@ def loop():
 
 @webiopi.macro
 def setGpio(ioNum):
-    print(ioNum)
-    GPIO.digitalWrite(int(ioNum), GPIO.HIGH)
+    gpio = int(ioNum)
+    print(gpio)
+    GPIO.digitalWrite(gpio, GPIO.HIGH)
     #GPIO.digitalWrite(IO_TV_POWER, GPIO.HIGH)
     print("High")
     webiopi.sleep(1)
-    GPIO.digitalWrite(int(ioNum), GPIO.LOW)
+    GPIO.digitalWrite(gpio, GPIO.LOW)
     #GPIO.digitalWrite(IO_TV_POWER, GPIO.LOW)
     print("Low")
     #webiopi.sleep(1)

@@ -62,7 +62,7 @@ def setGpio(ioNum):
     gpio = int(ioNum)
     #print(gpio)
     GPIO.digitalWrite(gpio, GPIO.LOW)
-    webiopi.sleep(1)
+    webiopi.sleep(0.5)
     GPIO.digitalWrite(gpio, GPIO.HIGH)
     #print("High")
     #print("Low")

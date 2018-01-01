@@ -10,21 +10,31 @@
 
     <script type="text/javascript">
 	    webiopi().ready(function() {
-		// ボタン追加
-    	var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
-    	var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
-    	var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
-    	var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
 
-        // Append button to HTML element with ID="controls" using jQuery
-        $("#cntrlAirConON").append(btnAirConON);
-        $("#cntrlAirConOFF").append(btnAirConOFF);
-        $("#cntrlPcRoomLight").append(btnPcRoomLight);
-        $("#cntrlTvPower").append(btnTvPower);
+	    	//コールバック
+	        var dummyCallBack = function(macro, args, response) {
+	        }
 
-        // Refresh GPIO buttons
-        // pass true to refresh repeatedly of false to refresh once
-        webiopi().refreshGPIO(true);
+			// ボタン追加
+    		var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
+    		var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
+    		var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
+    		var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
+    		var btnTest        = webiopi().createButton("setGpio", "Test", function() {
+    				webiopi().callMacro("setGpio", 23, dummyCallBack);
+     			}
+    		);
+
+       	 	// Append button to HTML element with ID="controls" using jQuery
+       	 	$("#cntrlAirConON").append(btnAirConON);
+       	 	$("#cntrlAirConOFF").append(btnAirConOFF);
+       	 	$("#cntrlPcRoomLight").append(btnPcRoomLight);
+        	$("#cntrlTvPower").append(btnTvPower);
+        	$("#cntrlTest").append(btnTest);
+
+ 	       	// Refresh GPIO buttons
+    	    // pass true to refresh repeatedly of false to refresh once
+       		webiopi().refreshGPIO(true);
 	    });
     </script>
 
@@ -32,10 +42,11 @@
 
 <body>
 
-<div id="cntrlTvPower" align="center"></div>
-<div id="cntrlPcRoomLight" align="center"></div>
-<div id="cntrlAirConON" align="center"></div>
-<div id="cntrlAirConOFF" align="center"></div>
+	<div id="cntrlTvPower" align="center"></div>
+	<div id="cntrlPcRoomLight" align="center"></div>
+	<div id="cntrlAirConON" align="center"></div>
+	<div id="cntrlAirConOFF" align="center"></div>
+	<div id="cntrlTest" align="center"></div>
 
 </body>
 </html>

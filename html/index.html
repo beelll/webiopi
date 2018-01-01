@@ -26,11 +26,11 @@
     		);
     		var btnAirConOFF   = webiopi().createButton("setGpio", "Air-Con OFF   (SW7  IO13)", function() {
 				webiopi().callMacro("setGpio", 13, dummyCallBack);
- 			}
+ 				}
 			);
     		var btnPcRoomLight = webiopi().createButton("setGpio", "Light PC Room (SW10 IO23)", function() {
 				webiopi().callMacro("setGpio", 23, dummyCallBack);
- 			}
+ 				}
 			);
     		var btnTvPower     = webiopi().createButton("setGpio", "TV Power      (SW1  IO4 )", function() {
     				webiopi().callMacro("setGpio", 4, dummyCallBack);

@@ -16,12 +16,24 @@
 	        }
 
 			// ボタン追加
-    		var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
-    		var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
-    		var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
-    		var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
-    		var btnTest        = webiopi().createButton("setGpio", "Test", function() {
-    				webiopi().callMacro("setGpio", 23, dummyCallBack);
+    		// var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
+    		// var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
+    		// var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
+    		// var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
+    		var btnAirConON    = webiopi().createButton("setGpio", "Air-Con ON    (SW6  IO6 )", function() {
+    				webiopi().callMacro("setGpio", 6, dummyCallBack);
+     			}
+    		);
+    		var btnAirConOFF   = webiopi().createButton("setGpio", "Air-Con OFF   (SW7  IO13)", function() {
+				webiopi().callMacro("setGpio", 13, dummyCallBack);
+ 			}
+			);
+    		var btnPcRoomLight = webiopi().createButton("setGpio", "Light PC Room (SW10 IO23)", function() {
+				webiopi().callMacro("setGpio", 23, dummyCallBack);
+ 			}
+			);
+    		var btnTvPower     = webiopi().createButton("setGpio", "TV Power      (SW1  IO4 )", function() {
+    				webiopi().callMacro("setGpio", 4, dummyCallBack);
      			}
     		);
 
@@ -30,13 +42,25 @@
        	 	$("#cntrlAirConOFF").append(btnAirConOFF);
        	 	$("#cntrlPcRoomLight").append(btnPcRoomLight);
         	$("#cntrlTvPower").append(btnTvPower);
-        	$("#cntrlTest").append(btnTest);
 
  	       	// Refresh GPIO buttons
     	    // pass true to refresh repeatedly of false to refresh once
        		webiopi().refreshGPIO(true);
 	    });
     </script>
+
+    <style type="text/css">
+        button {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 500px;
+            height: 45px;
+            font-size: 16pt;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+
 
 </head>
 
@@ -46,7 +70,6 @@
 	<div id="cntrlPcRoomLight" align="center"></div>
 	<div id="cntrlAirConON" align="center"></div>
 	<div id="cntrlAirConOFF" align="center"></div>
-	<div id="cntrlTest" align="center"></div>
 
 </body>
 </html>

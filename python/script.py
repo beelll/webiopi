@@ -65,6 +65,7 @@ def setGpio(value):
     #if value == "23":
     GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.HIGH)
     print("High")
+    webiopi.sleep(1)
     GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.LOW)
     print("LOW")
     #webiopi.sleep(1)
@@ -73,4 +74,3 @@ def setGpio(value):
     #    GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.LOW)
     #    print("Low")
     return 1
-

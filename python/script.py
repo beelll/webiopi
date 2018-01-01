@@ -62,10 +62,10 @@ def setGpio(ioNum):
     gpio = int(ioNum)
     #print(gpio)
     GPIO.digitalWrite(gpio, GPIO.HIGH)
-    print("High")
+    #print("High")
     webiopi.sleep(1)
     GPIO.digitalWrite(gpio, GPIO.LOW)
-    print("Low")
+    #print("Low")
     #webiopi.sleep(1)
         #subprocess.call(["sudo", "./home/pi/Desktop/Study/Servomotor/turnLeft"])
     #else:

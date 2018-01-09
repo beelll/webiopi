@@ -13,8 +13,8 @@ IO_TV_POWER = 4
 
 HOUR_ON  = 5  # Turn ON  at 05:00
 MINUTE_ON  = 20
-HOUR_OFF = 7  # Turn OFF at 07:00
-MINUTE_OFF = 20
+HOUR_OFF = 23  # Turn OFF at 07:00
+MINUTE_OFF = 22
 
 # setup function is automatically called at WebIOPi startup
 def setup():

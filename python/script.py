@@ -44,7 +44,10 @@ def loop():
 
     # toggle OFF
     if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
-        setGpio(IO_AIRCON_OFF)
+        #setGpio(IO_AIRCON_OFF)
+        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
+        webiopi.sleep(0.5)
+        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

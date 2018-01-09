@@ -12,9 +12,9 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 5  # Turn ON  at 05:00
-MINUTE_ON  = 20
+MINUTE_ON  = 30
 HOUR_OFF = 23  # Turn OFF at 07:00
-MINUTE_OFF = 40
+MINUTE_OFF = 44
 
 # setup function is automatically called at WebIOPi startup
 def setup():
@@ -39,17 +39,18 @@ def loop():
     now = datetime.datetime.now()
 
     # toggle ON all days at the correct time
-    if ((now.hour == HOUR_ON) and (now.minute == 0) and (now.second == 0)):
-        setGpio(IO_AIRCON_ON)
+    if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
+        #setGpio(IO_AIRCON_ON)
+        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.LOW)
+        webiopi.sleep(0.5)
+        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.HIGH)
 
     # toggle OFF
     if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
         #setGpio(IO_AIRCON_OFF)
-        print("call1")
-        GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.LOW)
+        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
         webiopi.sleep(0.5)
-        GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.HIGH)
-        print("call2")
+        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

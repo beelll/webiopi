@@ -37,6 +37,7 @@ def setup():
 def loop():
     # retrieve current datetime
     now = datetime.datetime.now()
+    print("Call loop")
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):

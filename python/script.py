@@ -13,16 +13,16 @@ IO_TV_POWER = 4
 
 HOUR_ON  = 5  # Turn ON  at 05:00
 MINUTE_ON  = 30
-HOUR_OFF = 23  # Turn OFF at 07:00
-MINUTE_OFF = 52
+HOUR_OFF = 21  # Turn OFF at 07:00
+MINUTE_OFF = 48
 
 # setup function is automatically called at WebIOPi startup
 def setup():
     # set the GPIO used by the light to output
-    GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)
-    GPIO.setFunction(IO_AIRCON_OFF, GPIO.OUT)
-    GPIO.setFunction(IO_LIGHT_PC_ROOM, GPIO.OUT)
-    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    #GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)
+    #GPIO.setFunction(IO_AIRCON_OFF, GPIO.OUT)
+    #GPIO.setFunction(IO_LIGHT_PC_ROOM, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
 
     # retrieve current datetime
     now = datetime.datetime.now()

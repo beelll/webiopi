@@ -10,6 +10,7 @@ IO_AIRCON_ON = 6
 IO_AIRCON_OFF = 13
 IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
+IO_LIGHT = 4
 
 HOUR_ON  = 5  # Turn ON  at 05:00
 MINUTE_ON  = 30
@@ -54,6 +55,13 @@ def loop():
         webiopi.sleep(0.5)
         GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
         #webiopi.debug("Call OFF 2")
+
+    if (GPIO.digitalRead(IO_LIGHT) == GPIO.LOW):
+        GPIO.digitalWrite(IO_LIGHT, GPIO.HIGH)
+        print("Call Light Hi")
+    else:
+        GPIO.digitalWrite(IO_LIGHT, GPIO.LOW)
+        print("Call Light Low")
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

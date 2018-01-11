@@ -1,6 +1,8 @@
 import webiopi
 import datetime
 
+webiopi.setDebug()
+
 GPIO = webiopi.GPIO
 
 #LIGHT = 23 # GPIO pin using BCM numbering
@@ -38,6 +40,7 @@ def loop():
     # retrieve current datetime
     now = datetime.datetime.now()
     print("Call loop!")
+    webiopi.debug(">> Call loop")
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
@@ -60,9 +63,11 @@ def loop():
     if (GPIO.digitalRead(IO_LIGHT) == GPIO.LOW):
         GPIO.digitalWrite(IO_LIGHT, GPIO.HIGH)
         print("Call Light Hi")
+        webiopi.debug(">> Light Hi")
     else:
         GPIO.digitalWrite(IO_LIGHT, GPIO.LOW)
         print("Call Light Low")
+        webiopi.debug(">> Light Low")
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

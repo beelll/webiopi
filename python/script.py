@@ -45,8 +45,9 @@ def loop():
     print(now)
     now2 = datetime.datetime.today()
     print(now2)
-    today = datetime.date.weekday()
-    print(today)
+    #today = datetime.date.weekday()
+    #today = datetime.date.
+    #print(today)
     # Exceptionally, don't execute program at holiday
     if ((now.weekday() == DATE_SATURDAY)):
         return

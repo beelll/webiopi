@@ -12,9 +12,9 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 16  # Turn ON  at 05:00
-MINUTE_ON  = 54
+MINUTE_ON  = 56
 HOUR_OFF = 16  # Turn OFF at 07:00
-MINUTE_OFF = 53
+MINUTE_OFF = 55
 
 # setup function is automatically called at WebIOPi startup
 def setup():

@@ -12,9 +12,9 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 18  # Turn ON  at 05:00
-MINUTE_ON  = 19
+MINUTE_ON  = 40
 HOUR_OFF = 18  # Turn OFF at 07:00
-MINUTE_OFF = 18
+MINUTE_OFF = 39
 
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
@@ -44,14 +44,6 @@ def loop():
     now = datetime.datetime.now()
     print(now.weekday())
 
-    #d = datetime.date.today()
-
-    #print(now)
-    #now2 = datetime.datetime.today()
-    #print(now2)
-    #weekday = datetime.date.weekday()
-    #today = datetime.date.
-    #print(today)
     # Exceptionally, don't execute program at holiday
     if ((now.weekday() == DATE_SATURDAY)):
         return

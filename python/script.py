@@ -45,7 +45,7 @@ def loop():
     print(now.weekday())
 
     # Exceptionally, don't execute program at holiday
-    if ((now.weekday() == DATE_SATURDAY)):
+    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
         return
 
     webiopi.debug(">> Call loop 2")

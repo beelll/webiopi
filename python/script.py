@@ -20,7 +20,7 @@ HOUR_OFF = 22  # Turn OFF at 07:00
 MINUTE_OFF = 49
 # setup function is automatically called at WebIOPi startup
 def setup():
-    webiopi.sleep(5)
+    webiopi.sleep(10)
 
     # set the GPIO used by the light to output
     GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)

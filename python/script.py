@@ -12,9 +12,17 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 17  # Turn ON  at 05:00
-MINUTE_ON  = 12
+MINUTE_ON  = 41
 HOUR_OFF = 17  # Turn OFF at 07:00
-MINUTE_OFF = 11
+MINUTE_OFF = 40
+
+DATE_MONDAY = 0
+DATE_TUESDAY = 1
+DATE_WEDNESDAY = 2
+DATE_THURSDAY = 3
+DATE_FRIDAY = 4
+DATE_SATURDAY = 5
+DATE_SUNDAY = 6
 
 # setup function is automatically called at WebIOPi startup
 def setup():
@@ -38,9 +46,15 @@ def setup():
 
 # loop function is repeatedly called by WebIOPi
 def loop():
+    #webiopi.debug(">> Call loop")
+
     # retrieve current datetime
     now = datetime.datetime.now()
-    webiopi.debug(">> Call loop")
+
+    # Exceptionally, don't execute program at holiday
+    #if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+    if ((now.weekday() == DATE_SATURDAY)):
+        return
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):

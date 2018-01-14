@@ -12,9 +12,9 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 17  # Turn ON  at 05:00
-MINUTE_ON  = 41
+MINUTE_ON  = 46
 HOUR_OFF = 17  # Turn OFF at 07:00
-MINUTE_OFF = 40
+MINUTE_OFF = 45
 
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
@@ -53,8 +53,8 @@ def loop():
 
     # Exceptionally, don't execute program at holiday
     #if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-    if ((now.weekday() == DATE_SATURDAY)):
-        return
+    #if ((now.weekday() == DATE_SATURDAY)):
+     #   return
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):

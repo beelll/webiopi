@@ -1,6 +1,5 @@
 import webiopi
 import datetime
-import date
 
 webiopi.setDebug()
 

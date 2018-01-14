@@ -12,9 +12,9 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 18  # Turn ON  at 05:00
-MINUTE_ON  = 4
+MINUTE_ON  = 7
 HOUR_OFF = 18  # Turn OFF at 07:00
-MINUTE_OFF = 3
+MINUTE_OFF = 6
 
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
@@ -38,7 +38,7 @@ def setup():
 
 # loop function is repeatedly called by WebIOPi
 def loop():
-    #webiopi.debug(">> Call loop")
+    webiopi.debug(">> Call loop")
 
     # retrieve current datetime
     now = datetime.datetime.now()

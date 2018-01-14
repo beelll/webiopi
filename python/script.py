@@ -11,10 +11,10 @@ IO_AIRCON_OFF = 13
 IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
-HOUR_ON  = 18  # Turn ON  at 05:00
-MINUTE_ON  = 47
-HOUR_OFF = 18  # Turn OFF at 07:00
-MINUTE_OFF = 46
+HOUR_ON  = 5  # Turn ON  at 05:30
+MINUTE_ON  = 30
+HOUR_OFF = 7  # Turn OFF at 07:30
+MINUTE_OFF = 30
 
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
@@ -42,11 +42,9 @@ def loop():
 
     # retrieve current datetime
     now = datetime.datetime.now()
-    print(now.weekday())
 
     # Exceptionally, don't execute program at holiday
-    #if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-    if ((now.weekday() == DATE_SATURDAY)):
+    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
         webiopi.sleep(1)
         return
 

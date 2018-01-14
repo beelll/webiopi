@@ -5,21 +5,20 @@ webiopi.setDebug()
 
 GPIO = webiopi.GPIO
 
-#LIGHT = 23 # GPIO pin using BCM numbering
-
-
+# GPIO pin using BCM numbering
 IO_AIRCON_ON = 6
 IO_AIRCON_OFF = 13
 IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
-IO_LIGHT = 4
 
-HOUR_ON  = 5  # Turn ON  at 05:00
-MINUTE_ON  = 30
-HOUR_OFF = 22  # Turn OFF at 07:00
-MINUTE_OFF = 49
+HOUR_ON  = 16  # Turn ON  at 05:00
+MINUTE_ON  = 46
+HOUR_OFF = 16  # Turn OFF at 07:00
+MINUTE_OFF = 45
+
 # setup function is automatically called at WebIOPi startup
 def setup():
+    # This sleep need for the purpuse of clear "Errno 19"
     webiopi.sleep(10)
 
     # set the GPIO used by the light to output
@@ -56,15 +55,6 @@ def loop():
         GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
         webiopi.sleep(0.5)
         GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
-
-    if (GPIO.digitalRead(IO_LIGHT) == GPIO.LOW):
-        GPIO.digitalWrite(IO_LIGHT, GPIO.HIGH)
-        print("Call Light Hi")
-        webiopi.debug(">> Light Hi")
-    else:
-        GPIO.digitalWrite(IO_LIGHT, GPIO.LOW)
-        print("Call Light Low")
-        webiopi.debug(">> Light Low")
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

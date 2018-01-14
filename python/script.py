@@ -1,6 +1,6 @@
 import webiopi
 import datetime
-#import date
+import date
 
 webiopi.setDebug()
 
@@ -39,16 +39,20 @@ def setup():
 
 # loop function is repeatedly called by WebIOPi
 def loop():
-    webiopi.debug(">> Call loop")
+    webiopi.debug(">> Call loop 1")
 
     # retrieve current datetime
-    #now = datetime.datetime.now()
-    now = datetime.datetime.today()
-    #today = date.date()
-
+    now = datetime.datetime.now()
+    print(now)
+    now2 = datetime.datetime.today()
+    print(now2)
+    today = date.date()
+    print(today)
     # Exceptionally, don't execute program at holiday
     if ((now.weekday() == DATE_SATURDAY)):
         return
+
+    webiopi.debug(">> Call loop 2")
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):

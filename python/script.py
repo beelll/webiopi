@@ -12,14 +12,14 @@ IO_LIGHT_PC_ROOM = 23
 IO_TV_POWER = 4
 
 HOUR_ON  = 16  # Turn ON  at 05:00
-MINUTE_ON  = 46
+MINUTE_ON  = 50
 HOUR_OFF = 16  # Turn OFF at 07:00
-MINUTE_OFF = 45
+MINUTE_OFF = 49
 
 # setup function is automatically called at WebIOPi startup
 def setup():
     # This sleep need for the purpuse of clear "Errno 19"
-    webiopi.sleep(10)
+    webiopi.sleep(15)
 
     # set the GPIO used by the light to output
     GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)

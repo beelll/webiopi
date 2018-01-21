@@ -1,13 +1,21 @@
 
 
 .smartHomeButton button{
-    display: block;
-    margin: 5px 5px 5px 5px;
-    width: 300px;
-    height: 50px;
-    font-size: 16pt;
-    font-weight: bold;
-    color: red;
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+
+/*     display: block; */
+/*     margin: 5px 5px 5px 5px; */
+/*     width: 300px; */
+/*     height: 50px; */
+/*     font-size: 16pt; */
+/*     font-weight: bold; */
+/*     color: black; */
 }
 
 

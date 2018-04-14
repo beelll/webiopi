@@ -1,6 +1,6 @@
 
 
-button{
+.largeButton button{
     font-size: 14pt;
 	display: inline-block;
     padding: 0.5em 1em;
@@ -10,19 +10,25 @@ button{
     border: none;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
-    /* width: 300px; */
+    width: 300px;
     height: 50px;
     margin: 5px 5px 5px 5px;
 }
 
 
-
-.button.large{
-    width: 300px;
-}
-
-.button.small{
+.smallButton button{
+    font-size: 14pt;
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/* ボタン色 */
+    color: #FFF;
+    border: none;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
     width: 100px;
+    height: 50px;
+    margin: 5px 5px 5px 5px;
 }
 
 

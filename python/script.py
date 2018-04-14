@@ -54,6 +54,22 @@ def setup():
 def loop():
     #webiopi.debug(">> Call loop 1")
 
+
+
+
+
+
+    # Scheduling AirContos is disabled.
+    webiopi.sleep(1000)
+    return
+
+
+
+
+
+
+
+
     # retrieve current datetime
     now = datetime.datetime.now()
 

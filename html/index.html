@@ -23,46 +23,46 @@
     		// var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
 
 			// エアコン
-			var btnAirConON    = webiopi().createButton("setGpio", "Air-Con ON", function() {
+			var btnAirConON    = webiopi().createButton("setGpio", "ON", function() {
     				webiopi().callMacro("setGpio", 6, dummyCallBack);
      			}
     		);
-    		var btnAirConOFF   = webiopi().createButton("setGpio", "Air-Con OFF", function() {
+    		var btnAirConOFF   = webiopi().createButton("setGpio", "OFF", function() {
 				webiopi().callMacro("setGpio", 13, dummyCallBack);
  				}
 			);
 			// テレビ
-    		var btnTvPower     = webiopi().createButton("setGpio", "TV Power", function() {
+    		var btnTvPower     = webiopi().createButton("setGpio", "Power", function() {
 				webiopi().callMacro("setGpio", 4, dummyCallBack);
  			}
 			);
-    		var btnTvChUp     = webiopi().createButton("setGpio", "TV CH UP", function() {
+    		var btnTvChUp     = webiopi().createButton("setGpio", "UP", function() {
 				webiopi().callMacro("setGpio", 18, dummyCallBack);
  			}
 			);
-    		var btnTvChDown     = webiopi().createButton("setGpio", "TV CH Down", function() {
+    		var btnTvChDown     = webiopi().createButton("setGpio", "Down", function() {
 				webiopi().callMacro("setGpio", 5, dummyCallBack);
  			}
 			);
-    		var btnTvVolUp     = webiopi().createButton("setGpio", "TV Vol UP", function() {
+    		var btnTvVolUp     = webiopi().createButton("setGpio", "UP", function() {
 				webiopi().callMacro("setGpio", 17, dummyCallBack);
  			}
 			);
-    		var btnTvVolDown     = webiopi().createButton("setGpio", "TV Vol Down", function() {
+    		var btnTvVolDown     = webiopi().createButton("setGpio", "Down", function() {
 				webiopi().callMacro("setGpio", 27, dummyCallBack);
  			}
 			);
     		// オーディオ
-    		var btnTvAudioPower    = webiopi().createButton("setGpio", "Audio Power", function() {
+    		var btnTvAudioPower    = webiopi().createButton("setGpio", "Power", function() {
 				webiopi().callMacro("setGpio", 12, dummyCallBack);
  			}
 			);
-    		var btnTvAudioAux    = webiopi().createButton("setGpio", "Audio AUX", function() {
+    		var btnTvAudioAux    = webiopi().createButton("setGpio", "AUX", function() {
 				webiopi().callMacro("setGpio", 22, dummyCallBack);
  			}
 			);
     		// 照明
-			var btnPcRoomLight = webiopi().createButton("setGpio", "Light PC Room", function() {
+			var btnPcRoomLight = webiopi().createButton("setGpio", "PC Room", function() {
 				webiopi().callMacro("setGpio", 23, dummyCallBack);
  				}
 			);
@@ -92,6 +92,7 @@
 	<div id="cntrlAirControlls" align="center" class="smallButton"></div>
 	<p>TV</p>
 	<div id="cntrlTvPower" align="center" class="largeButton"></div>
+	Channel  Volume
 	<div id="cntrlTvUpCntrolls" align="center" class="smallButton"></div>
 	<div id="cntrlTvDownCntrolls" align="center" class="smallButton"></div>
 	<p>Audio</p>

@@ -5,17 +5,23 @@ webiopi.setDebug()
 
 GPIO = webiopi.GPIO
 
-# GPIO pin using BCM numbering
-IO_AIRCON_ON = 6
-IO_AIRCON_OFF = 13
-IO_LIGHT_PC_ROOM = 23
-IO_TV_POWER = 4
+# GPIO pin using BCM(GPIO) numbering
+IO_TV_POWER = 4         # SW1
+IO_TV_VOL_UP = 17       # SW2
+IO_TV_VOL_DOWN = 27     # SW3
+IO_TV_CH_UP = 18        # SW4
+IO_TV_CH_DOWN = 5       # SW5
+IO_AIRCON_ON = 6        # SW6
+IO_AIRCON_OFF = 13      # SW7
+IO_AUDIO_POWER = 12     # SW8
+IO_AUDIO_AUX = 22       # SW9
+IO_PC_ROOM_LIGHT = 23   # SW10
 
-HOUR_ON  = 5  # Turn ON  at 05:30
+# Scheduling aircon control settings
+HOUR_ON  = 5
 MINUTE_ON  = 30
-HOUR_OFF = 7  # Turn OFF at 07:30
+HOUR_OFF = 7
 MINUTE_OFF = 15
-
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
 DATE_WEDNESDAY = 2
@@ -24,16 +30,24 @@ DATE_FRIDAY = 4
 DATE_SATURDAY = 5
 DATE_SUNDAY = 6
 
+
 # setup function is automatically called at WebIOPi startup
 def setup():
     # This sleep need for the purpuse of clear "Errno 19"
     webiopi.sleep(20)
 
     # set the GPIO used by the light to output
+    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    GPIO.setFunction(IO_TV_VOL_UP, GPIO.OUT)
+    GPIO.setFunction(IO_TV_VOL_DOWN, GPIO.OUT)
+    GPIO.setFunction(IO_TV_CH_UP, GPIO.OUT)
+    GPIO.setFunction(IO_TV_CH_DOWN, GPIO.OUT)
     GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)
     GPIO.setFunction(IO_AIRCON_OFF, GPIO.OUT)
-    GPIO.setFunction(IO_LIGHT_PC_ROOM, GPIO.OUT)
-    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    GPIO.setFunction(IO_AUDIO_POWER, GPIO.OUT)
+    GPIO.setFunction(IO_AUDIO_AUX, GPIO.OUT)
+    GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
 
 
 # loop function is repeatedly called by WebIOPi
@@ -82,6 +96,6 @@ def setGpio(ioNum):
     #webiopi.sleep(1)
         #subprocess.call(["sudo", "./home/pi/Desktop/Study/Servomotor/turnLeft"])
     #else:
-    #    GPIO.digitalWrite(IO_LIGHT_PC_ROOM, GPIO.LOW)
+    #    GPIO.digitalWrite(IO_PC_ROOM_LIGHT, GPIO.LOW)
     #    print("Low")
     return 1

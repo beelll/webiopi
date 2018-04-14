@@ -1,26 +1,28 @@
 
 
-.smartHomeButton button{
+button{
     font-size: 14pt;
 	display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: #668ad8;/*ボタン色*/
+    background: #668ad8;/* ボタン色 */
     color: #FFF;
     border: none;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
-    width: 300px;
+    /* width: 300px; */
     height: 50px;
     margin: 5px 5px 5px 5px;
+}
 
-/*     display: block; */
-/*     margin: 5px 5px 5px 5px; */
-/*     width: 300px; */
-/*     height: 50px; */
-/*     font-size: 16pt; */
-/*     font-weight: bold; */
-/*     color: black; */
+
+
+.largeButton button{
+    width: 300px;
+}
+
+.smallButton button{
+    width: 100px;
 }
 
 

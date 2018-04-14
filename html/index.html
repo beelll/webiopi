@@ -19,32 +19,65 @@
 	        }
 
 			// ボタン追加
+			// この書き方だとLOW -> Wait -> Hiみたいにできないからマクロを呼び出す
     		// var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
-    		// var btnAirConOFF   = webiopi().createGPIOButton(13, "Air-Con OFF   (SW7  IO13)");
-    		// var btnPcRoomLight = webiopi().createGPIOButton(23, "Light PC Room (SW10 IO23)");
-    		// var btnTvPower     = webiopi().createGPIOButton(4,  "TV Power      (SW1  IO4 )");
-    		var btnAirConON    = webiopi().createButton("setGpio", "Air-Con ON    (SW6  IO6 )", function() {
+
+			// エアコン
+			var btnAirConON    = webiopi().createButton("setGpio", "Air-Con ON", function() {
     				webiopi().callMacro("setGpio", 6, dummyCallBack);
      			}
     		);
-    		var btnAirConOFF   = webiopi().createButton("setGpio", "Air-Con OFF   (SW7  IO13)", function() {
+    		var btnAirConOFF   = webiopi().createButton("setGpio", "Air-Con OFF", function() {
 				webiopi().callMacro("setGpio", 13, dummyCallBack);
  				}
 			);
-    		var btnPcRoomLight = webiopi().createButton("setGpio", "Light PC Room (SW10 IO23)", function() {
+			// テレビ
+    		var btnTvPower     = webiopi().createButton("setGpio", "TV Power", function() {
+				webiopi().callMacro("setGpio", 4, dummyCallBack);
+ 			}
+			);
+    		var btnTvChUp     = webiopi().createButton("setGpio", "TV CH UP", function() {
+				webiopi().callMacro("setGpio", 18, dummyCallBack);
+ 			}
+			);
+    		var btnTvChDown     = webiopi().createButton("setGpio", "TV CH Down", function() {
+				webiopi().callMacro("setGpio", 5, dummyCallBack);
+ 			}
+			);
+    		var btnTvVolUp     = webiopi().createButton("setGpio", "TV Vol UP", function() {
+				webiopi().callMacro("setGpio", 17, dummyCallBack);
+ 			}
+			);
+    		var btnTvVolDown     = webiopi().createButton("setGpio", "TV Vol Down", function() {
+				webiopi().callMacro("setGpio", 27, dummyCallBack);
+ 			}
+			);
+    		// オーディオ
+    		var btnTvAudioPower    = webiopi().createButton("setGpio", "Audio Power", function() {
+				webiopi().callMacro("setGpio", 12, dummyCallBack);
+ 			}
+			);
+    		var btnTvAudioAux    = webiopi().createButton("setGpio", "Audio AUX", function() {
+				webiopi().callMacro("setGpio", 22, dummyCallBack);
+ 			}
+			);
+    		// 照明
+			var btnPcRoomLight = webiopi().createButton("setGpio", "Light PC Room", function() {
 				webiopi().callMacro("setGpio", 23, dummyCallBack);
  				}
 			);
-    		var btnTvPower     = webiopi().createButton("setGpio", "TV Power      (SW1  IO4 )", function() {
-    				webiopi().callMacro("setGpio", 4, dummyCallBack);
-     			}
-    		);
 
        	 	// Append button to HTML element with ID="controls" using jQuery
        	 	$("#cntrlAirConON").append(btnAirConON);
        	 	$("#cntrlAirConOFF").append(btnAirConOFF);
-       	 	$("#cntrlPcRoomLight").append(btnPcRoomLight);
         	$("#cntrlTvPower").append(btnTvPower);
+       	 	$("#cntrlTvChUp").append(btnTvChUp);
+       	 	$("#cntrlTvChDown").append(btnTvChDown);
+       	 	$("#cntrlTvVolUp").append(btnTvVolUp);
+       	 	$("#cntrlTvVolDown").append(btnTvVolDown);
+       	 	$("#cntrlAudioPower").append(btnTvAudioPower);
+       	 	$("#cntrlAudioAux").append(btnTvAudioAux);
+       	 	$("#cntrlPcRoomLight").append(btnPcRoomLight);
 
  	       	// Refresh GPIO buttons
     	    // pass true to refresh repeatedly of false to refresh once
@@ -56,10 +89,16 @@
 
 <body>
 
-	<div id="cntrlTvPower" align="center" class="smartHomeButton"></div>
-	<div id="cntrlPcRoomLight" align="center" class="smartHomeButton"></div>
 	<div id="cntrlAirConON" align="center" class="smartHomeButton"></div>
 	<div id="cntrlAirConOFF" align="center" class="smartHomeButton"></div>
+	<div id="cntrlTvPower" align="center" class="smartHomeButton"></div>
+	<div id="cntrlTvChUp" align="center" class="smartHomeButton"></div>
+	<div id="cntrlTvChDown" align="center" class="smartHomeButton"></div>
+	<div id="cntrlTvVolUp" align="center" class="smartHomeButton"></div>
+	<div id="cntrlTvVolDown" align="center" class="smartHomeButton"></div>
+	<div id="cntrlAudioPower" align="center" class="smartHomeButton"></div>
+	<div id="cntrlAudioAux" align="center" class="smartHomeButton"></div>
+	<div id="cntrlPcRoomLight" align="center" class="smartHomeButton"></div>
 
 </body>
 </html>

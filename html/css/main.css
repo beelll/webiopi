@@ -28,13 +28,20 @@
     border-radius: 3px;
     width: 100px;
     height: 50px;
-    margin: 5px 20px 5px 20px;	/* 上 右 下 左 */
+    margin: 5px 30px 5px 30px;	/* 上 右 下 左 */
 }
 
 p {
 	text-align: center;
+	font-size: 12pt;
+    margin: 5px 5px 5px 5px;	/* 上 右 下 左 */
+}
+
+.subtitle {
+	text-align: center;
 	font-size: 14pt;
 }
+
 
 /*
 .smartHomeButton button{

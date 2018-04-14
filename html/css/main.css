@@ -18,7 +18,7 @@
 
 .smallButton button{
     font-size: 14pt;
-	display: inline-block;
+	display: inline;
     padding: 0.5em 1em;
     text-decoration: none;
     background: #668ad8;/* ボタン色 */

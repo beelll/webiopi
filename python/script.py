@@ -71,29 +71,29 @@ def loop():
 
 
     # retrieve current datetime
-    now = datetime.datetime.now()
+#    now = datetime.datetime.now()
 
     # Exceptionally, don't execute program at holiday
-    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-        webiopi.sleep(1)
-        return
+#    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+#        webiopi.sleep(1)
+#        return
 
     # toggle ON all days at the correct time
-    if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
+#   if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
         #setGpio(IO_AIRCON_ON)
-        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.LOW)
-        webiopi.sleep(0.5)
-        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.HIGH)
+#        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.LOW)
+#        webiopi.sleep(0.5)
+#        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.HIGH)
 
     # toggle OFF
-    if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
+#    if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
         #setGpio(IO_AIRCON_OFF)
-        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
-        webiopi.sleep(0.5)
-        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
+#        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
+#        webiopi.sleep(0.5)
+#        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
 
     # gives CPU some time before looping again
-    webiopi.sleep(1)
+#    webiopi.sleep(1)
 
 
 

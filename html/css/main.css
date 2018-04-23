@@ -4,6 +4,8 @@
 	font-size: 30px;
 	text-align: center;
 	margin: 5px;
+	font-weight: bold;
+
 }
 
 
@@ -70,9 +72,9 @@ h2 {
     left: 10px;
     padding: 0 9px;
     line-height: 1;
-    font-size: 19px;
+    font-size: 25px;
     background: #FFF;
-    color: #95ccff;
+    color: #668ad8;
     font-weight: bold;
 }
 .box26 p {

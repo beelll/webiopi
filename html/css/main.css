@@ -83,7 +83,15 @@ h2 {
     padding: 0;
 }
 
+#tvItems {
+	list-style-type: none;
+	padding-left: 0;
+}
 
+.tvItems {
+	display: flex;
+	justify-content: center;
+}
 
 /*
 .smartHomeButton button{

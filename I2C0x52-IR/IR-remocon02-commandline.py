@@ -5,7 +5,7 @@
 #
 # ファイル名：IR-remocon02-commandline.py  python3用
 # バージョン：2017/12/13 v1.0
-#           2018/2/14   v2.0 python3用 
+#           2018/2/14   v2.0 python3用
 
 # ビット・トレード・ワン社提供のラズベリー・パイ専用 学習リモコン基板(型番：ADRSIR)用のツール
 #　著作権者:(C) 2015 ビット・トレード・ワン社
@@ -92,7 +92,7 @@ def read_command(memo_no):
     #print(block)  #for denug
     else:
      print("data_num error=",data_num )
-     
+
     return block
 
 ################# write command
@@ -106,30 +106,30 @@ def write_command(memo_no,block2):
     int_tmp = []
     #for i in range(len(block2)/2): #TypeError: 'float' object cannot be interpreted as an integer
     for i in range(int(len(block2)/2)):
-    
+
         str_tmp = block2[i*2] + block2[i*2+1]
         int_tmp.append( int(str_tmp, 16))
-    #print(int_tmp)  
+    #print(int_tmp)
     #print(len(int_tmp))
 # cmd W1_memo_no_write 0x19 bus-write(ADR,cmd,1)
-    bus.write_i2c_block_data(SLAVE_ADDRESS, W1_memo_no_write ,memo_no )   #= 
+    bus.write_i2c_block_data(SLAVE_ADDRESS, W1_memo_no_write ,memo_no )   #=
 # cmd W2_data_num_write 0x29 bus-write(ADR,cmd,3)
     data_num = int(len(int_tmp)/4)  #for test
     data_numHL = [0x31,0x32] #for test
     data_numHL[0] = int(data_num/256)
     data_numHL[1] = int(data_num%256)
     #print(data_numHL ,data_numHL[0] ,data_numHL[1])
-    bus.write_i2c_block_data(SLAVE_ADDRESS, W2_data_num_write ,  data_numHL)   #= 
+    bus.write_i2c_block_data(SLAVE_ADDRESS, W2_data_num_write ,  data_numHL)   #=
     #TypeError: Third argument must be a list of at least one, but not more than 32 integers
 # cmd W3_data_write           0x39 bus-read(ADR,cmd,n)
     #print(data_num)
-    data_numHL = [0x31,0x32,0x33,0x34] #for test 
+    data_numHL = [0x31,0x32,0x33,0x34] #for test
     for i in range(data_num):
          data_numHL[0] = int_tmp[i*4+0]
          data_numHL[1] = int_tmp[i*4+1]
          data_numHL[2] = int_tmp[i*4+2]
          data_numHL[3] = int_tmp[i*4+3]
-         bus.write_i2c_block_data(SLAVE_ADDRESS, W3_data_write , data_numHL)   #= 
+         bus.write_i2c_block_data(SLAVE_ADDRESS, W3_data_write , data_numHL)   #=
 # cmd W4_flash_write           0x49 bus-read(ADR,cmd,n)
     bus.write_i2c_block_data(SLAVE_ADDRESS, W4_flash_write,memo_no)   #=
 
@@ -146,31 +146,31 @@ def trans_command(block2):
     #for i in range(len(block2)/2):
         str_tmp = block2[i*2] + block2[i*2+1]
         int_tmp.append( int(str_tmp, 16))
-    #print(int_tmp)  
+    #print(int_tmp)
     #print(len(int_tmp))
 # cmd W2_data_num_write 0x29 bus-write(ADR,cmd,3)
     data_num = int(len(int_tmp)//4)  #for test
     data_numHL = [0x31,0x32] #for test
     data_numHL[0] = int(data_num//256)
     data_numHL[1] = int(data_num%256)
-    bus.write_i2c_block_data(SLAVE_ADDRESS, W2_data_num_write ,  data_numHL)   #= 
+    bus.write_i2c_block_data(SLAVE_ADDRESS, W2_data_num_write ,  data_numHL)   #=
 # cmd W3_data_write           0x39 bus-read(ADR,cmd,n)
     #print(data_num)
-    data_numHL = [0x31,0x32,0x33,0x34] #for test 
+    data_numHL = [0x31,0x32,0x33,0x34] #for test
     for i in range(data_num):
          data_numHL[0] = int_tmp[i*4+0]
          data_numHL[1] = int_tmp[i*4+1]
          data_numHL[2] = int_tmp[i*4+2]
          data_numHL[3] = int_tmp[i*4+3]
-         bus.write_i2c_block_data(SLAVE_ADDRESS, W3_data_write , data_numHL)   #= 
+         bus.write_i2c_block_data(SLAVE_ADDRESS, W3_data_write , data_numHL)   #=
  # cmd T1_trans_start             0x59 bus-write(ADR,cmd,1)
     memo_no = [0x00 ] #for dummy
-    bus.write_i2c_block_data(SLAVE_ADDRESS, T1_trans_start,memo_no )   #= 
+    bus.write_i2c_block_data(SLAVE_ADDRESS, T1_trans_start,memo_no )   #=
 
 ###########################   main
-dir_name = '/home/pi/I2C0x52-IR/'
+dir_name = '/home/pi/webiopi/I2C0x52-IR/'
 os.chdir(dir_name)
-    
+
 while True:
     argvc = sys.argv
     argc = len(argvc)
@@ -192,11 +192,11 @@ while True:
        if command == 'r' :
            res_data = [141,0,47,0] #bin num [0x141, 0x0, 0x68, 0x0]
            memo_no[0]= int(argvc[2])
-           #print(memo_no)  
+           #print(memo_no)
            res_data = read_command(memo_no)
            for i in range(len(res_data)):
              print('{:02X}'.format(res_data[i]), end=""); #141
-           print('')          
+           print('')
            break
        elif command == 't' :
            #print("sys.argv[2]=",sys.argv[2])
@@ -216,13 +216,13 @@ while True:
     elif  (argc  == 4):
        if command == 'w' :
            #print("sys.argv[3]=",sys.argv[3])
-           
+
            #print("w_mode_start")
            block2 = argvc[3]
            #print(block2)
            memo_no[0]= int(argvc[2])
 
            write_command(memo_no,block2)
-           break   
+           break
 
 

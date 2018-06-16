@@ -1,0 +1,2945 @@
+[
+    {
+        "id": "8a68d6d.5ec6128",
+        "type": "subflow",
+        "name": "リモコン１０",
+        "info": "",
+        "in": [
+            {
+                "x": 720,
+                "y": 600,
+                "wires": [
+                    {
+                        "id": "5a360232.9cec1c"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "b0535b8c.c678f8",
+        "type": "inject",
+        "z": "8a68d6d.5ec6128",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 880,
+        "y": 640,
+        "wires": [
+            [
+                "487275da.73f4dc"
+            ]
+        ]
+    },
+    {
+        "id": "487275da.73f4dc",
+        "type": "function",
+        "z": "8a68d6d.5ec6128",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 600,
+        "wires": [
+            [
+                "bca759.9e5d58a8",
+                "b2221dbc.440f5",
+                "bbbb8937.d314a8"
+            ]
+        ]
+    },
+    {
+        "id": "bca759.9e5d58a8",
+        "type": "delay",
+        "z": "8a68d6d.5ec6128",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1070,
+        "y": 640,
+        "wires": [
+            [
+                "54218ed6.2d41f"
+            ]
+        ]
+    },
+    {
+        "id": "54218ed6.2d41f",
+        "type": "function",
+        "z": "8a68d6d.5ec6128",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 680,
+        "wires": [
+            [
+                "b2221dbc.440f5",
+                "bbbb8937.d314a8"
+            ]
+        ]
+    },
+    {
+        "id": "b2221dbc.440f5",
+        "type": "debug",
+        "z": "8a68d6d.5ec6128",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1250,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "bbbb8937.d314a8",
+        "type": "rpi-gpio out",
+        "z": "8a68d6d.5ec6128",
+        "name": "16 - GPIO23",
+        "pin": "16",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 1290,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "5a360232.9cec1c",
+        "type": "function",
+        "z": "8a68d6d.5ec6128",
+        "name": "リモコン10",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 600,
+        "wires": [
+            [
+                "487275da.73f4dc"
+            ]
+        ]
+    },
+    {
+        "id": "4ef6f2ec.868b3c",
+        "type": "subflow",
+        "name": "リモコン９",
+        "info": "",
+        "in": [
+            {
+                "x": 720,
+                "y": 480,
+                "wires": [
+                    {
+                        "id": "bc1c4e59.f091"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "5fe8f29c.28911c",
+        "type": "inject",
+        "z": "4ef6f2ec.868b3c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 880,
+        "y": 520,
+        "wires": [
+            [
+                "a8e66c08.08181"
+            ]
+        ]
+    },
+    {
+        "id": "a8e66c08.08181",
+        "type": "function",
+        "z": "4ef6f2ec.868b3c",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 480,
+        "wires": [
+            [
+                "39f48052.bf889",
+                "557a7eee.76254",
+                "42a51be7.0202e4"
+            ]
+        ]
+    },
+    {
+        "id": "39f48052.bf889",
+        "type": "delay",
+        "z": "4ef6f2ec.868b3c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1070,
+        "y": 520,
+        "wires": [
+            [
+                "4ae0117.1cb32f"
+            ]
+        ]
+    },
+    {
+        "id": "4ae0117.1cb32f",
+        "type": "function",
+        "z": "4ef6f2ec.868b3c",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 560,
+        "wires": [
+            [
+                "557a7eee.76254",
+                "42a51be7.0202e4"
+            ]
+        ]
+    },
+    {
+        "id": "557a7eee.76254",
+        "type": "debug",
+        "z": "4ef6f2ec.868b3c",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1250,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "42a51be7.0202e4",
+        "type": "rpi-gpio out",
+        "z": "4ef6f2ec.868b3c",
+        "name": "GPIO22 - 15",
+        "pin": "15",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 1290,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bc1c4e59.f091",
+        "type": "function",
+        "z": "4ef6f2ec.868b3c",
+        "name": "リモコン9",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 480,
+        "wires": [
+            [
+                "a8e66c08.08181"
+            ]
+        ]
+    },
+    {
+        "id": "2c23eb54.c16de4",
+        "type": "subflow",
+        "name": "リモコン８",
+        "info": "",
+        "in": [
+            {
+                "x": 720,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "cfc6898f.775728"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "80b4ce46.0f9d6",
+        "type": "inject",
+        "z": "2c23eb54.c16de4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 880,
+        "y": 400,
+        "wires": [
+            [
+                "47aa2bd.98760d4"
+            ]
+        ]
+    },
+    {
+        "id": "47aa2bd.98760d4",
+        "type": "function",
+        "z": "2c23eb54.c16de4",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 360,
+        "wires": [
+            [
+                "59aa784a.769568",
+                "9b819b8e.9ae768",
+                "aca89274.a7437"
+            ]
+        ]
+    },
+    {
+        "id": "59aa784a.769568",
+        "type": "delay",
+        "z": "2c23eb54.c16de4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1070,
+        "y": 400,
+        "wires": [
+            [
+                "34dc55c4.d7b7da"
+            ]
+        ]
+    },
+    {
+        "id": "34dc55c4.d7b7da",
+        "type": "function",
+        "z": "2c23eb54.c16de4",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 440,
+        "wires": [
+            [
+                "9b819b8e.9ae768",
+                "aca89274.a7437"
+            ]
+        ]
+    },
+    {
+        "id": "9b819b8e.9ae768",
+        "type": "debug",
+        "z": "2c23eb54.c16de4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1250,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "aca89274.a7437",
+        "type": "rpi-gpio out",
+        "z": "2c23eb54.c16de4",
+        "name": "32 - GPIO12",
+        "pin": "32",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 1300,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cfc6898f.775728",
+        "type": "function",
+        "z": "2c23eb54.c16de4",
+        "name": "リモコン8",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 360,
+        "wires": [
+            [
+                "47aa2bd.98760d4"
+            ]
+        ]
+    },
+    {
+        "id": "eb12a4b8.eb4e48",
+        "type": "subflow",
+        "name": "リモコン７",
+        "info": "",
+        "in": [
+            {
+                "x": 700,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "42376d1c.f75d64"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "6de98c05.734c24",
+        "type": "inject",
+        "z": "eb12a4b8.eb4e48",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 880,
+        "y": 280,
+        "wires": [
+            [
+                "8375ac61.a49c5"
+            ]
+        ]
+    },
+    {
+        "id": "8375ac61.a49c5",
+        "type": "function",
+        "z": "eb12a4b8.eb4e48",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "28bdc9c9.06f6d6",
+                "40c217c2.42c4a8",
+                "221d0db8.ecc1d2"
+            ]
+        ]
+    },
+    {
+        "id": "28bdc9c9.06f6d6",
+        "type": "delay",
+        "z": "eb12a4b8.eb4e48",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1070,
+        "y": 280,
+        "wires": [
+            [
+                "42ddae3e.a53b4"
+            ]
+        ]
+    },
+    {
+        "id": "42ddae3e.a53b4",
+        "type": "function",
+        "z": "eb12a4b8.eb4e48",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 320,
+        "wires": [
+            [
+                "40c217c2.42c4a8",
+                "221d0db8.ecc1d2"
+            ]
+        ]
+    },
+    {
+        "id": "40c217c2.42c4a8",
+        "type": "debug",
+        "z": "eb12a4b8.eb4e48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1250,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "221d0db8.ecc1d2",
+        "type": "rpi-gpio out",
+        "z": "eb12a4b8.eb4e48",
+        "name": "GPIO13 - 33 ",
+        "pin": "33",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 1290,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "42376d1c.f75d64",
+        "type": "function",
+        "z": "eb12a4b8.eb4e48",
+        "name": "リモコン7",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 240,
+        "wires": [
+            [
+                "8375ac61.a49c5"
+            ]
+        ]
+    },
+    {
+        "id": "9055e8b4.d69ca8",
+        "type": "subflow",
+        "name": "リモコン６",
+        "info": "",
+        "in": [
+            {
+                "x": 720,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "24628ac8.440576"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "28ed0fb0.e3fea",
+        "type": "inject",
+        "z": "9055e8b4.d69ca8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 880,
+        "y": 160,
+        "wires": [
+            [
+                "aa2388aa.2cf998"
+            ]
+        ]
+    },
+    {
+        "id": "aa2388aa.2cf998",
+        "type": "function",
+        "z": "9055e8b4.d69ca8",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            [
+                "2654df4a.960e",
+                "4fcfd088.92efe",
+                "b8adbba5.d010a8"
+            ]
+        ]
+    },
+    {
+        "id": "2654df4a.960e",
+        "type": "delay",
+        "z": "9055e8b4.d69ca8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1070,
+        "y": 160,
+        "wires": [
+            [
+                "3b35b37b.d0218c"
+            ]
+        ]
+    },
+    {
+        "id": "3b35b37b.d0218c",
+        "type": "function",
+        "z": "9055e8b4.d69ca8",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "4fcfd088.92efe",
+                "b8adbba5.d010a8"
+            ]
+        ]
+    },
+    {
+        "id": "4fcfd088.92efe",
+        "type": "debug",
+        "z": "9055e8b4.d69ca8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1250,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b8adbba5.d010a8",
+        "type": "rpi-gpio out",
+        "z": "9055e8b4.d69ca8",
+        "name": "GPIO06-31",
+        "pin": "31",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 1250,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "24628ac8.440576",
+        "type": "function",
+        "z": "9055e8b4.d69ca8",
+        "name": "リモコン6",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 120,
+        "wires": [
+            [
+                "aa2388aa.2cf998"
+            ]
+        ]
+    },
+    {
+        "id": "921cf8f9.7533c8",
+        "type": "subflow",
+        "name": "リモコン５",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 480,
+                "wires": [
+                    {
+                        "id": "b78dc76d.7395f8"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "51a66164.fc252",
+        "type": "inject",
+        "z": "921cf8f9.7533c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 620,
+        "wires": [
+            [
+                "a74d0d50.134e4"
+            ]
+        ]
+    },
+    {
+        "id": "a74d0d50.134e4",
+        "type": "function",
+        "z": "921cf8f9.7533c8",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "e943795f.f1d818",
+                "a7620a56.693758",
+                "f2c535b0.123588"
+            ]
+        ]
+    },
+    {
+        "id": "e943795f.f1d818",
+        "type": "delay",
+        "z": "921cf8f9.7533c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 640,
+        "wires": [
+            [
+                "a6d6cac3.1bd6a8"
+            ]
+        ]
+    },
+    {
+        "id": "a6d6cac3.1bd6a8",
+        "type": "function",
+        "z": "921cf8f9.7533c8",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 680,
+        "wires": [
+            [
+                "a7620a56.693758",
+                "f2c535b0.123588"
+            ]
+        ]
+    },
+    {
+        "id": "a7620a56.693758",
+        "type": "debug",
+        "z": "921cf8f9.7533c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 490,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f2c535b0.123588",
+        "type": "rpi-gpio out",
+        "z": "921cf8f9.7533c8",
+        "name": "GPIO05 - 29",
+        "pin": "29",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 530,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b78dc76d.7395f8",
+        "type": "function",
+        "z": "921cf8f9.7533c8",
+        "name": "リモコン5",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "a74d0d50.134e4"
+            ]
+        ]
+    },
+    {
+        "id": "f14d202e.e91c6",
+        "type": "subflow",
+        "name": "リモコン４",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 380,
+                "wires": [
+                    {
+                        "id": "6935cac2.293d14"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "d2289d5.989eb6",
+        "type": "inject",
+        "z": "f14d202e.e91c6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "d127e1b1.50535"
+            ]
+        ]
+    },
+    {
+        "id": "d127e1b1.50535",
+        "type": "function",
+        "z": "f14d202e.e91c6",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "7f0d912a.9d536",
+                "d8119acc.d1d598",
+                "60c40e00.eb934"
+            ]
+        ]
+    },
+    {
+        "id": "7f0d912a.9d536",
+        "type": "delay",
+        "z": "f14d202e.e91c6",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "7bd9a869.923788"
+            ]
+        ]
+    },
+    {
+        "id": "7bd9a869.923788",
+        "type": "function",
+        "z": "f14d202e.e91c6",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "d8119acc.d1d598",
+                "60c40e00.eb934"
+            ]
+        ]
+    },
+    {
+        "id": "d8119acc.d1d598",
+        "type": "debug",
+        "z": "f14d202e.e91c6",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 490,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "60c40e00.eb934",
+        "type": "rpi-gpio out",
+        "z": "f14d202e.e91c6",
+        "name": "12 - GPIO18",
+        "pin": "12",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 530,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6935cac2.293d14",
+        "type": "function",
+        "z": "f14d202e.e91c6",
+        "name": "リモコン4",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 90,
+        "y": 460,
+        "wires": [
+            [
+                "d127e1b1.50535"
+            ]
+        ]
+    },
+    {
+        "id": "7d9136f1.d4be88",
+        "type": "subflow",
+        "name": "リモコン３",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "4ff6efa7.3d915"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "8bf1bda1.6a85e",
+        "type": "inject",
+        "z": "7d9136f1.d4be88",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "bc5b7e89.86aa6"
+            ]
+        ]
+    },
+    {
+        "id": "bc5b7e89.86aa6",
+        "type": "function",
+        "z": "7d9136f1.d4be88",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "8a1850b4.90b41",
+                "73a98fe7.d4cff",
+                "5801c98b.cd2ca8"
+            ]
+        ]
+    },
+    {
+        "id": "8a1850b4.90b41",
+        "type": "delay",
+        "z": "7d9136f1.d4be88",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "e6265fe7.04d52"
+            ]
+        ]
+    },
+    {
+        "id": "e6265fe7.04d52",
+        "type": "function",
+        "z": "7d9136f1.d4be88",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "73a98fe7.d4cff",
+                "5801c98b.cd2ca8"
+            ]
+        ]
+    },
+    {
+        "id": "73a98fe7.d4cff",
+        "type": "debug",
+        "z": "7d9136f1.d4be88",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5801c98b.cd2ca8",
+        "type": "rpi-gpio out",
+        "z": "7d9136f1.d4be88",
+        "name": "GPIO27 - 13",
+        "pin": "13",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 540,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4ff6efa7.3d915",
+        "type": "function",
+        "z": "7d9136f1.d4be88",
+        "name": "リモコン3",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "bc5b7e89.86aa6"
+            ]
+        ]
+    },
+    {
+        "id": "313ecffc.1eb9e",
+        "type": "subflow",
+        "name": "リモコン２",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "edb90406.8bb258"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "b6c40c98.084b8",
+        "type": "inject",
+        "z": "313ecffc.1eb9e",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "64ab9f07.7fd81"
+            ]
+        ]
+    },
+    {
+        "id": "64ab9f07.7fd81",
+        "type": "function",
+        "z": "313ecffc.1eb9e",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "2bbeab01.e3ee84",
+                "5980b1e8.0000d",
+                "937f2baa.d19e18"
+            ]
+        ]
+    },
+    {
+        "id": "2bbeab01.e3ee84",
+        "type": "delay",
+        "z": "313ecffc.1eb9e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "7cf63591.ed398c"
+            ]
+        ]
+    },
+    {
+        "id": "7cf63591.ed398c",
+        "type": "function",
+        "z": "313ecffc.1eb9e",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "5980b1e8.0000d",
+                "937f2baa.d19e18"
+            ]
+        ]
+    },
+    {
+        "id": "5980b1e8.0000d",
+        "type": "debug",
+        "z": "313ecffc.1eb9e",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "937f2baa.d19e18",
+        "type": "rpi-gpio out",
+        "z": "313ecffc.1eb9e",
+        "name": "GPIO17 - 11 ",
+        "pin": "11",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 530,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "edb90406.8bb258",
+        "type": "function",
+        "z": "313ecffc.1eb9e",
+        "name": "リモコン２",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "64ab9f07.7fd81"
+            ]
+        ]
+    },
+    {
+        "id": "8a194d14.d8042",
+        "type": "subflow",
+        "name": "リモコン１",
+        "info": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "3fbc1380.7e9d6c"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "807ed600.45e5f8",
+        "type": "inject",
+        "z": "8a194d14.d8042",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "73ce65dc.a2684c"
+            ]
+        ]
+    },
+    {
+        "id": "73ce65dc.a2684c",
+        "type": "function",
+        "z": "8a194d14.d8042",
+        "name": "0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "a01b02e1.3fdb8",
+                "2e4d6353.d9dfdc",
+                "b93c8e17.b1d1a"
+            ]
+        ]
+    },
+    {
+        "id": "a01b02e1.3fdb8",
+        "type": "delay",
+        "z": "8a194d14.d8042",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "829848d2.b74498"
+            ]
+        ]
+    },
+    {
+        "id": "829848d2.b74498",
+        "type": "function",
+        "z": "8a194d14.d8042",
+        "name": "1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "2e4d6353.d9dfdc",
+                "b93c8e17.b1d1a"
+            ]
+        ]
+    },
+    {
+        "id": "2e4d6353.d9dfdc",
+        "type": "debug",
+        "z": "8a194d14.d8042",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b93c8e17.b1d1a",
+        "type": "rpi-gpio out",
+        "z": "8a194d14.d8042",
+        "name": "GPIO04 - 7 ",
+        "pin": "7",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3fbc1380.7e9d6c",
+        "type": "function",
+        "z": "8a194d14.d8042",
+        "name": "リモコン１",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "73ce65dc.a2684c"
+            ]
+        ]
+    },
+    {
+        "id": "aa40232b.c03e5",
+        "type": "subflow:8a194d14.d8042",
+        "z": "c5e3eec0.bda65",
+        "name": "リモコン１",
+        "x": 310,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "434d7b5.9bd1f84",
+        "type": "subflow:313ecffc.1eb9e",
+        "z": "c5e3eec0.bda65",
+        "x": 310,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b152ce9f.11f6c",
+        "type": "subflow:7d9136f1.d4be88",
+        "z": "c5e3eec0.bda65",
+        "x": 310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "43e51cd0.0e3fd4",
+        "type": "subflow:f14d202e.e91c6",
+        "z": "c5e3eec0.bda65",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "62f0c162.d7a56",
+        "type": "subflow:921cf8f9.7533c8",
+        "z": "c5e3eec0.bda65",
+        "x": 310,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aebe575a.5d3208",
+        "type": "subflow:9055e8b4.d69ca8",
+        "z": "c5e3eec0.bda65",
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3d770d5a.b5fd62",
+        "type": "subflow:eb12a4b8.eb4e48",
+        "z": "c5e3eec0.bda65",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6552695c.4e33f8",
+        "type": "subflow:2c23eb54.c16de4",
+        "z": "c5e3eec0.bda65",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4533f23f.999bdc",
+        "type": "subflow:4ef6f2ec.868b3c",
+        "z": "c5e3eec0.bda65",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1a449596.f526ca",
+        "type": "subflow:8a68d6d.5ec6128",
+        "z": "c5e3eec0.bda65",
+        "x": 680,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6e3c12b8.7885bc",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "基本ボタン操作　ＳＷ１~10の赤外線記憶データを送出する",
+        "info": "",
+        "x": 260,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2d41d79b.47e068",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "aa40232b.c03e5"
+            ]
+        ]
+    },
+    {
+        "id": "1fb15c6.42d3fa4",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ラズハ゜イ赤外線リモコン基本動作プログラム",
+        "info": "",
+        "x": 220,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "49233440.5d60cc",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "434d7b5.9bd1f84"
+            ]
+        ]
+    },
+    {
+        "id": "8eeefb69.aae328",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "b152ce9f.11f6c"
+            ]
+        ]
+    },
+    {
+        "id": "a32dd700.4093e8",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "43e51cd0.0e3fd4"
+            ]
+        ]
+    },
+    {
+        "id": "a3e6226b.114de",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "62f0c162.d7a56"
+            ]
+        ]
+    },
+    {
+        "id": "afab1d63.deb19",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "aebe575a.5d3208"
+            ]
+        ]
+    },
+    {
+        "id": "2117241d.79b14c",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "3d770d5a.b5fd62"
+            ]
+        ]
+    },
+    {
+        "id": "ecd019eb.225ea8",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "6552695c.4e33f8"
+            ]
+        ]
+    },
+    {
+        "id": "fa6e4e5d.0a477",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "4533f23f.999bdc"
+            ]
+        ]
+    },
+    {
+        "id": "8a6e86fb.fa51c8",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "1a449596.f526ca"
+            ]
+        ]
+    },
+    {
+        "id": "e08615a7.dcd5f8",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ＴＡＢ管理操作　ＳＷ１~10の赤外線記憶データをＴＡＢ単位で管理する",
+        "info": "",
+        "x": 310,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d930a33e.05e4a",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "buckup",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "a197ee7b.4611f"
+            ]
+        ]
+    },
+    {
+        "id": "544914c7.9063ac",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 410,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a197ee7b.4611f",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 720,
+        "wires": [
+            [
+                "544914c7.9063ac",
+                "30eb2afe.e4a926"
+            ]
+        ]
+    },
+    {
+        "id": "30eb2afe.e4a926",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py rd",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 740,
+        "y": 720,
+        "wires": [
+            [
+                "94434421.742a98"
+            ],
+            [
+                "94434421.742a98"
+            ],
+            [
+                "94434421.742a98"
+            ]
+        ]
+    },
+    {
+        "id": "94434421.742a98",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 890,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "9328a6c6.668408",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "buckup",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 860,
+        "wires": [
+            [
+                "e4be20a3.7eccd"
+            ]
+        ]
+    },
+    {
+        "id": "49b20308.959fcc",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 410,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "e4be20a3.7eccd",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 860,
+        "wires": [
+            [
+                "49b20308.959fcc",
+                "8d37be22.cbfe1"
+            ]
+        ]
+    },
+    {
+        "id": "8d37be22.cbfe1",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py wd",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 750,
+        "y": 860,
+        "wires": [
+            [
+                "7d728b8a.4b8174"
+            ],
+            [
+                "7d728b8a.4b8174"
+            ],
+            [
+                "7d728b8a.4b8174"
+            ]
+        ]
+    },
+    {
+        "id": "7d728b8a.4b8174",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 890,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "bc722880.828af8",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": " 学習リモコンのリモコンデータを、ラズハ゜イの指定フォルダに格納する",
+        "info": "",
+        "x": 330,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "afc26adf.c005c8",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ラズハ゜イの指定フォルダのリモコンデータを、 学習リモコンに書き戻す",
+        "info": "",
+        "x": 330,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "52e070de.d3f45",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "管理１：バックアップ",
+        "info": "",
+        "x": 150.89999389648438,
+        "y": 627.3333206176758,
+        "wires": []
+    },
+    {
+        "id": "14dddb47.a2aff5",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 410,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "307753b6.4572bc",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 1100,
+        "wires": [
+            [
+                "14dddb47.a2aff5",
+                "f691373f.e4c368"
+            ]
+        ]
+    },
+    {
+        "id": "f691373f.e4c368",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py rd",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 770,
+        "y": 1100,
+        "wires": [
+            [
+                "19d52367.823e6d"
+            ],
+            [
+                "19d52367.823e6d"
+            ],
+            [
+                "19d52367.823e6d"
+            ]
+        ]
+    },
+    {
+        "id": "19d52367.823e6d",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 890,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "372ee948.5ca7a6",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": " 学習リモコンのリモコンデータを、ラズハ゜イの指定フォルダに格納する",
+        "info": "",
+        "x": 330,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "a1a82f29.8bbbb",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "sonyTV",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 1100,
+        "wires": [
+            [
+                "307753b6.4572bc"
+            ]
+        ]
+    },
+    {
+        "id": "8ea8bc4b.45221",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "最初にダミーデータ作成に使用、再確認時には、線をつなぐこと",
+        "info": "",
+        "x": 310,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "3c98a663.7e997a",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "管理２：公開データ読込　フォルダ作成",
+        "info": "",
+        "x": 210.89999389648438,
+        "y": 987.3333206176758,
+        "wires": []
+    },
+    {
+        "id": "c26051b0.b57d1",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "buckup",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1340,
+        "wires": [
+            [
+                "f611fcb2.f11d3"
+            ]
+        ]
+    },
+    {
+        "id": "e3fe3127.29ef5",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 410,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "f611fcb2.f11d3",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1360,
+        "wires": [
+            [
+                "e3fe3127.29ef5",
+                "fb6dda1d.79ec78"
+            ]
+        ]
+    },
+    {
+        "id": "fb6dda1d.79ec78",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py rd",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 740,
+        "y": 1360,
+        "wires": [
+            [
+                "99ef64ca.03e4d8"
+            ],
+            [
+                "99ef64ca.03e4d8"
+            ],
+            [
+                "99ef64ca.03e4d8"
+            ]
+        ]
+    },
+    {
+        "id": "99ef64ca.03e4d8",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 680,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "dedfec84.a3c07",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "buckup",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1560,
+        "wires": [
+            [
+                "a0670476.27f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "3feeb603.ba19fa",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 410,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "a0670476.27f9a8",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1560,
+        "wires": [
+            [
+                "3feeb603.ba19fa",
+                "89ea5f28.12373"
+            ]
+        ]
+    },
+    {
+        "id": "89ea5f28.12373",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py wd",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 750,
+        "y": 1560,
+        "wires": [
+            [
+                "7d36c0ac.154b4"
+            ],
+            [
+                "7d36c0ac.154b4"
+            ],
+            [
+                "7d36c0ac.154b4"
+            ]
+        ]
+    },
+    {
+        "id": "7d36c0ac.154b4",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 680,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "536dd338.6eee5c",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab0",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1380,
+        "wires": [
+            [
+                "f611fcb2.f11d3"
+            ]
+        ]
+    },
+    {
+        "id": "50fafb28.9f4aa4",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab0",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1600,
+        "wires": [
+            [
+                "a0670476.27f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "ffc39e29.56dec",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1420,
+        "wires": [
+            [
+                "f611fcb2.f11d3"
+            ]
+        ]
+    },
+    {
+        "id": "1df08d1a.433fe3",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1640,
+        "wires": [
+            [
+                "a0670476.27f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "ec650b73.c93758",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab2",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1460,
+        "wires": [
+            [
+                "f611fcb2.f11d3"
+            ]
+        ]
+    },
+    {
+        "id": "db769de2.f8a6d",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "tab2",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1680,
+        "wires": [
+            [
+                "a0670476.27f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "1b9812d1.af50bd",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": " 学習リモコンのリモコンデータを、ラズハ゜イの指定フォルダに格納する",
+        "info": "",
+        "x": 330,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "d4e8492c.7aa928",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ラズハ゜イの指定フォルダのリモコンデータを、 学習リモコンに書き戻す",
+        "info": "",
+        "x": 330,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "565f105a.77b3a",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "sonyTV",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 1740,
+        "wires": [
+            [
+                "a0670476.27f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "f96a8b82.3d5608",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "管理3：フォルダ管理",
+        "info": "",
+        "x": 150.89999389648438,
+        "y": 1267.3333206176758,
+        "wires": []
+    },
+    {
+        "id": "604b1ce5.1f1254",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "作成したｓｏｎｙＴＶフォルダの中のファイルを、公開データで編集する",
+        "info": "",
+        "x": 350,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "20a7e135.47e1de",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ＴＡＢ式リモコンデータの利用例",
+        "info": "",
+        "x": 420,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "b0080550.1a9fc8",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ＩＯＴ的使い方として、ネットより起動したいときは、ここをトリガ",
+        "info": "",
+        "x": 300,
+        "y": 1810,
+        "wires": []
+    },
+    {
+        "id": "bc1f3faf.c1953",
+        "type": "exec",
+        "z": "c5e3eec0.bda65",
+        "command": "python3 /home/pi/I2C0x52-IR/IR-remocon03-dirbase.py t",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1080,
+        "y": 1910,
+        "wires": [
+            [
+                "3f392744.19a068"
+            ],
+            [
+                "3f392744.19a068"
+            ],
+            [
+                "3f392744.19a068"
+            ]
+        ]
+    },
+    {
+        "id": "3f392744.19a068",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1150,
+        "y": 1850,
+        "wires": []
+    },
+    {
+        "id": "a01c37e9.a81648",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "ラズハ゜イの指定ファイルのリモコンデータを、 学習リモコンに送り、赤外線を送出する",
+        "info": "",
+        "x": 720,
+        "y": 1850,
+        "wires": []
+    },
+    {
+        "id": "41afaf3d.802d9",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch0.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch0.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 1960,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "553b8295.52d48c",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 780,
+        "y": 1920,
+        "wires": [
+            [
+                "41afaf3d.802d9"
+            ]
+        ]
+    },
+    {
+        "id": "413eda8c.7ef3a4",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch1.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch1.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 2470,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "d8e3411e.c96d4",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 790,
+        "y": 2430,
+        "wires": [
+            [
+                "413eda8c.7ef3a4"
+            ]
+        ]
+    },
+    {
+        "id": "cf2fdd8e.18181",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch5.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch5.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 2130,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "40788661.d9cbc8",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 780,
+        "y": 2090,
+        "wires": [
+            [
+                "cf2fdd8e.18181"
+            ]
+        ]
+    },
+    {
+        "id": "fb6e8ce7.bd08a",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch6.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch6.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 2200,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "28383134.37b37e",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 790,
+        "y": 2170,
+        "wires": [
+            [
+                "fb6e8ce7.bd08a"
+            ]
+        ]
+    },
+    {
+        "id": "383d796c.53bd86",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch7.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch7.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 2260,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "33fa3a24.9caff6",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 780,
+        "y": 2230,
+        "wires": [
+            [
+                "383d796c.53bd86"
+            ]
+        ]
+    },
+    {
+        "id": "445d6f54.e07dd",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch8.data\"",
+        "func": "msg.payload = \"/home/pi/I2C0x52-IR/rgb-led-bu/ch8.data\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 2340,
+        "wires": [
+            [
+                "d93363ca.19987"
+            ]
+        ]
+    },
+    {
+        "id": "db18b6a9.65e2c8",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 780,
+        "y": 2300,
+        "wires": [
+            [
+                "445d6f54.e07dd"
+            ]
+        ]
+    },
+    {
+        "id": "d93363ca.19987",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1230,
+        "y": 1960,
+        "wires": [
+            [
+                "bc1f3faf.c1953"
+            ]
+        ]
+    },
+    {
+        "id": "69272c68.567ef4",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 2150,
+        "wires": [
+            [
+                "2d1cd869.7d3558",
+                "fb6e8ce7.bd08a"
+            ]
+        ]
+    },
+    {
+        "id": "2d1cd869.7d3558",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 2210,
+        "wires": [
+            [
+                "dcdc81b9.af8b8",
+                "383d796c.53bd86"
+            ]
+        ]
+    },
+    {
+        "id": "dcdc81b9.af8b8",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 2290,
+        "wires": [
+            [
+                "d51d0131.f1ae1"
+            ]
+        ]
+    },
+    {
+        "id": "d145c623.623078",
+        "type": "switch",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 410,
+        "y": 2350,
+        "wires": [
+            [
+                "b4ea7c23.c82ae",
+                "1334957a.3a3b9b"
+            ],
+            [
+                "a2d5ad55.b6ea2",
+                "ed4b81a2.3b195"
+            ]
+        ]
+    },
+    {
+        "id": "d51d0131.f1ae1",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "10進カウンタ",
+        "func": "// もしまだカウンタが存在していなければ0に初期化\nvar count = context.get('count')||0;\n//count += 1;\n// 値を書き戻して保存\n//context.set('count',count);\n// 送信するメッセージの一部にカウントを含める\n//msg.count = count;\n//msg.payload　=　count;\n//if (msg.payloiad == \"0\" ) {\n//count = context.get('count')\ncount += 1;\ncontext.set('count',count);\nmsg.payload　=　count;\n\n// ４進カウンタ\nif (count == 10) {\n    count = 0;\n    context.set('count',count);\n}\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 2290,
+        "wires": [
+            [
+                "d145c623.623078",
+                "205d13c1.922a1c"
+            ]
+        ]
+    },
+    {
+        "id": "205d13c1.922a1c",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 610,
+        "y": 2290,
+        "wires": []
+    },
+    {
+        "id": "a2d5ad55.b6ea2",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 550,
+        "y": 2370,
+        "wires": []
+    },
+    {
+        "id": "b4ea7c23.c82ae",
+        "type": "debug",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 580,
+        "y": 2330,
+        "wires": []
+    },
+    {
+        "id": "2b431c4e.cbfec4",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 490,
+        "y": 2080,
+        "wires": [
+            [
+                "69272c68.567ef4",
+                "cf2fdd8e.18181"
+            ]
+        ]
+    },
+    {
+        "id": "272c4333.80dbdc",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "カウンタによる繰り返し",
+        "info": "",
+        "x": 220,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "a07659cd.21b5c8",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "繰り返し終了時の処理",
+        "info": "",
+        "x": 420,
+        "y": 2410,
+        "wires": []
+    },
+    {
+        "id": "ed4b81a2.3b195",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 510,
+        "y": 2480,
+        "wires": [
+            [
+                "413eda8c.7ef3a4"
+            ]
+        ]
+    },
+    {
+        "id": "325675c0.31391a",
+        "type": "delay",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 480,
+        "y": 1960,
+        "wires": [
+            [
+                "2b431c4e.cbfec4",
+                "41afaf3d.802d9"
+            ]
+        ]
+    },
+    {
+        "id": "cc6dfce8.34457",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 2000,
+        "wires": [
+            [
+                "325675c0.31391a"
+            ]
+        ]
+    },
+    {
+        "id": "8c9c1d18.22dab",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "すぐ動かしてみる",
+        "info": "",
+        "x": 180,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "1334957a.3a3b9b",
+        "type": "function",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 240,
+        "y": 2080,
+        "wires": [
+            [
+                "2b431c4e.cbfec4"
+            ]
+        ]
+    },
+    {
+        "id": "c1a13138.df1b1",
+        "type": "inject",
+        "z": "c5e3eec0.bda65",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "55 12 * * 1,2,3,4,5",
+        "once": false,
+        "x": 170,
+        "y": 1910,
+        "wires": [
+            [
+                "325675c0.31391a"
+            ]
+        ]
+    },
+    {
+        "id": "198e70bc.5fb51f",
+        "type": "comment",
+        "z": "c5e3eec0.bda65",
+        "name": "定時起動　昼休み終了（12：55）の予鈴",
+        "info": "",
+        "x": 200,
+        "y": 1870,
+        "wires": []
+    }
+]

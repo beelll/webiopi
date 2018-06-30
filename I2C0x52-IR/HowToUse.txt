@@ -1,0 +1,18 @@
+# Save IR Data from ADRSIR
+  python IR-remocon02-commandline.py r 0 > filename.dat
+  
+  0 : SW Number (SW1 to 0)
+
+
+# Send IR Data from ADRSIR
+  python IR-remocon02-commandline.py t `cat filename.dat`
+
+
+
+
+
+
+
+
+
+

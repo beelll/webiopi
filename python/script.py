@@ -127,6 +127,6 @@ def sendIr(dummy):
     webiopi.debug(">> Call sendIr")
     cmd = 'python ../I2C0x52-IR/IR-remocon02-commandline.py t \`cat ../I2C0x52-IR/data_dir/airconPowerOff.dat\`'
     #subprocess.call(cmd.split())
-    subprocess.call(["python", "../I2C0x52-IR/IR-remocon02-commandline.py", "t", "\'cat ../I2C0x52-IR/data_dir/airconPowerOff.dat\'"])
+    subprocess.call(["sh", "../I2C0x52-IR/command02.sh", "data_dir/airconPowerOff.dat"])
     return 1
 

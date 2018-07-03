@@ -28,7 +28,8 @@
      			}
     		);
     		var btnAirConOFF   = webiopi().createButton("setGpio", "OFF", function() {
-				webiopi().callMacro("setGpio", 13, dummyCallBack);
+				//webiopi().callMacro("setGpio", 13, dummyCallBack);
+				webiopi().callMacro("sendIr", dummyCallBack);
  				}
 			);
 			// テレビ

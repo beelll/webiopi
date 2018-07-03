@@ -30,6 +30,10 @@ DATE_FRIDAY = 4
 DATE_SATURDAY = 5
 DATE_SUNDAY = 6
 
+# IR Data Pass
+IR_AIR_POWER_OFF = "../I2C0x5-IR/data_dir/airconPowerOff.dat"
+IR_AIR_POWER_ON = "../I2C0x5-IR/data_dir/airconPowerOn.dat"
+
 
 # setup function is automatically called at WebIOPi startup
 def setup():
@@ -115,3 +119,11 @@ def setGpio(ioNum):
     #    GPIO.digitalWrite(IO_PC_ROOM_LIGHT, GPIO.LOW)
     #    print("Low")
     return 1
+
+
+@webiopi.macro
+def sendIr():
+    subprocess.call(["python", "IR-remocon02-commandline.py", "t", "'cat airconPowerOff.dat'"], cwd = '../I2C0x5-IR/data_dir/')
+    return 1
+
+

@@ -122,7 +122,7 @@ def setGpio(ioNum):
 
 
 @webiopi.macro
-def sendIr():
+def sendIr(dummy):
     subprocess.call(["python", "IR-remocon02-commandline.py", "t", "'cat data_dir/airconPowerOff.dat'"], cwd = '../I2C0x52-IR')
     return 1
 

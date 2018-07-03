@@ -17,6 +17,8 @@
 	    	//コールバック
 	        var dummyCallBack = function(macro, args, response) {
 	        }
+	        var dummyCallBack2 = function(macro, args, response) {
+	        }
 
 			// ボタン追加
 			// この書き方だとLOW -> Wait -> Hiみたいにできないからマクロを呼び出す
@@ -28,8 +30,8 @@
      			}
     		);
     		var btnAirConOFF   = webiopi().createButton("sendIr", "OFF", function() {
-					webiopi().callMacro("setGpio", 13, dummyCallBack);
-					//webiopi().callMacro("sendIr", 0, dummyCallBack);
+					//webiopi().callMacro("setGpio", 13, dummyCallBack);
+					webiopi().callMacro("sendIr", 0, dummyCallBack2);
  				}
 			);
 			// テレビ

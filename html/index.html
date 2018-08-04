@@ -17,8 +17,6 @@
 	    	//コールバック
 	        var dummyCallBack = function(macro, args, response) {
 	        }
-	        var dummyCallBack2 = function(macro, args, response) {
-	        }
 
 			// ボタン追加
 			// この書き方だとLOW -> Wait -> Hiみたいにできないからマクロを呼び出す
@@ -26,48 +24,41 @@
 
 			// エアコン
 			var btnAirConON    = webiopi().createButton("setGpio", "ON", function() {
-    				webiopi().callMacro("setGpio", 6, dummyCallBack);
-     			}
-    		);
+				webiopi().callMacro("sendIr", "airconPowerOn.dat", dummyCallBack);
+     		});
     		var btnAirConOFF   = webiopi().createButton("sendIr", "OFF", function() {
-					webiopi().callMacro("sendIr", "airconPowerOff.dat", dummyCallBack);
- 				}
-			);
-			// テレビ
+				webiopi().callMacro("sendIr", "airconPowerOff.dat", dummyCallBack);
+     		});
+
+    		// テレビ
     		var btnTvPower     = webiopi().createButton("setGpio", "Power", function() {
-				webiopi().callMacro("setGpio", 4, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "tvPower.dat", dummyCallBack);
+     		});
     		var btnTvChUp     = webiopi().createButton("setGpio", "UP", function() {
-				webiopi().callMacro("setGpio", 18, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "tvChUp.dat", dummyCallBack);
+     		});
     		var btnTvChDown     = webiopi().createButton("setGpio", "Down", function() {
-				webiopi().callMacro("setGpio", 5, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "tvChDown.dat", dummyCallBack);
+     		});
     		var btnTvVolUp     = webiopi().createButton("setGpio", "UP", function() {
-				webiopi().callMacro("setGpio", 17, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "tvVolumeUp.dat", dummyCallBack);
+     		});
     		var btnTvVolDown     = webiopi().createButton("setGpio", "Down", function() {
-				webiopi().callMacro("setGpio", 27, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "tvVolumeDown.dat", dummyCallBack);
+     		});
+
     		// オーディオ
     		var btnTvAudioPower    = webiopi().createButton("setGpio", "Power", function() {
-				webiopi().callMacro("setGpio", 12, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "audioPower.dat", dummyCallBack);
+     		});
     		var btnTvAudioAux    = webiopi().createButton("setGpio", "AUX", function() {
-				webiopi().callMacro("setGpio", 22, dummyCallBack);
- 			}
-			);
+				webiopi().callMacro("sendIr", "audioAux.dat", dummyCallBack);
+     		});
+
     		// 照明
 			var btnPcRoomLight = webiopi().createButton("setGpio", "PC Room", function() {
-				webiopi().callMacro("setGpio", 23, dummyCallBack);
- 				}
-			);
+				webiopi().callMacro("sendIr", "lightPcRoom.dat", dummyCallBack);
+     		});
 
        	 	// Append button to HTML element with ID="controls" using jQuery
        	 	$("#cntrlAirControlls").append(btnAirConON);
@@ -99,7 +90,7 @@
 
 <body>
 	<div class="title">
-		Smart Home hehe
+		Smart Home
 	</div>
 
 	<div class="box26">

@@ -31,11 +31,6 @@ DATE_FRIDAY = 4
 DATE_SATURDAY = 5
 DATE_SUNDAY = 6
 
-# IR Data Pass
-IR_AIR_POWER_OFF = "../I2C0x5-IR/data_dir/airconPowerOff.dat"
-IR_AIR_POWER_ON = "../I2C0x5-IR/data_dir/airconPowerOn.dat"
-
-
 # setup function is automatically called at WebIOPi startup
 def setup():
     # This sleep need for the purpuse of clear "Errno 19"
@@ -58,11 +53,6 @@ def setup():
 # loop function is repeatedly called by WebIOPi
 def loop():
     #webiopi.debug(">> Call loop 1")
-
-
-
-
-
 
     # Scheduling AirContos is disabled.
     webiopi.sleep(1000)
@@ -124,9 +114,7 @@ def setGpio(ioNum):
 
 @webiopi.macro
 def sendIr(dummy):
-    webiopi.debug(">> Call sendIr")
-    cmd = 'python ../I2C0x52-IR/IR-remocon02-commandline.py t \`cat ../I2C0x52-IR/data_dir/airconPowerOff.dat\`'
-    #subprocess.call(cmd.split())
-    subprocess.call('sh ../I2C0x52-IR/command02.sh data_dir/airconPowerOff.dat')
+    subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
     return 1
+
 

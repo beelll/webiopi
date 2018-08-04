@@ -23,8 +23,8 @@
     		// var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
 
 			// エアコン
-			var btnAirConON    = webiopi().createButton("setGpio", "ON", function() {
-				webiopi().callMacro("sendIr", "airconPowerOn.dat", dummyCallBack);
+			var btnAirConON    = webiopi().createButton("setGpio", "Cool25 ON", function() {
+				webiopi().callMacro("sendIr", "airconPowerOnCool25.dat", dummyCallBack);
      		});
     		var btnAirConOFF   = webiopi().createButton("sendIr", "OFF", function() {
 				webiopi().callMacro("sendIr", "airconPowerOff.dat", dummyCallBack);

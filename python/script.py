@@ -113,8 +113,9 @@ def setGpio(ioNum):
 
 
 @webiopi.macro
-def sendIr(dummy):
-    subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
+def sendIr(targetName):
+    webiopi.debug(targetName)
+    subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", targetName])
     return 1
 
 

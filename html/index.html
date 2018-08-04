@@ -31,7 +31,7 @@
     		);
     		var btnAirConOFF   = webiopi().createButton("sendIr", "OFF", function() {
 					//webiopi().callMacro("setGpio", 13, dummyCallBack);
-					webiopi().callMacro("sendIr", 0, dummyCallBack2);
+					webiopi().callMacro("sendIr", "lightPcRoom.dat", dummyCallBack2);
  				}
 			);
 			// テレビ

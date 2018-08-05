@@ -36,7 +36,7 @@
     border: none;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
-    width: 100px;
+    width: 110px;
     height: 40px;
     margin: 5px 20px 5px 20px;	/* 上 右 下 左 */
 }
@@ -44,6 +44,7 @@
 p {
 	text-align: center;
 	font-size: 12pt;
+    font-weight: bold;
     margin: 5px 5px 5px 5px;	/* 上 右 下 左 */
 }
 
@@ -51,12 +52,6 @@ h2 {
 	text-align: center;
 }
 
-.controlArea {
-	border: 3px solid #1f81e9;
-	border-radius: 10px;
-	margin: 5px;
-	padding: 5px;
-}
 
 /* タイトルつきの枠 */
 .box26 {
@@ -83,23 +78,14 @@ h2 {
     padding: 0;
 }
 
-#tvItems {
-	list-style-type: none;
-	padding-left: 0;
-}
-
-.tvItems {
-	display: flex;
-	justify-content: center;
-}
-
+/* 内側横並び用コンテナ */
 .subContainer {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-	background-color: #ccc;
-    width: 160px;
-/*     margin: 5px 20px 5px 20px;	上 右 下 左 */
+/* 	background-color: #ccc; */
+    width: 150px;
+    margin: 5px 5px 5px 5px;	/*上 右 下 左*/
 }
 
 /*

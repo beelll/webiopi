@@ -23,31 +23,15 @@
     		// var btnAirConON    = webiopi().createGPIOButton(6,  "Air-Con ON    (SW6  IO6 )");
 
 			// エアコン
-			var btnAirConOnCool27	= webiopi().createButton("AirConOnCool27", "27度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnCool27.dat", dummyCallBack);});
-			var btnAirConOnCool25	= webiopi().createButton("AirConOnCool25", "25度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnCool25.dat", dummyCallBack);});
-			var btnAirConOnCool20	= webiopi().createButton("AirConOnCool20", "20度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnCool20.dat", dummyCallBack);});
-			var btnAirConOnCool16	= webiopi().createButton("AirConOnCool16", "16度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnCool16.dat", dummyCallBack);});
-			var btnAirConOnHeat30	= webiopi().createButton("AirConOnHeat30", "30度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnHeat30.dat", dummyCallBack);});
-			var btnAirConOnHeat27	= webiopi().createButton("AirConOnHeat27", "27度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnHeat27.dat", dummyCallBack);});
-			var btnAirConOnHeat25	= webiopi().createButton("AirConOnHeat25", "25度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnHeat25.dat", dummyCallBack);});
-			var btnAirConOnHeat20	= webiopi().createButton("AirConOnHeat20", "20度", function()	{	webiopi().callMacro("sendIr", "airconPowerOnHeat20.dat", dummyCallBack);});
-			var btnAirConOFF   		= webiopi().createButton("AirConOff", "OFF", function() 		{	webiopi().callMacro("sendIr", "airconPowerOff.dat", dummyCallBack);	});
-
-    		// テレビ
-    		var btnTvPower			= webiopi().createButton("setGpio", "Power", function() {	webiopi().callMacro("sendIr", "tvPower.dat", dummyCallBack);});
-    		var btnTvChUp			= webiopi().createButton("setGpio", "UP", function() {	webiopi().callMacro("sendIr", "tvChUp.dat", dummyCallBack);});
-    		var btnTvChDown			= webiopi().createButton("setGpio", "Down", function() {	webiopi().callMacro("sendIr", "tvChDown.dat", dummyCallBack);});
-    		var btnTvVolUp			= webiopi().createButton("setGpio", "UP", function() {	webiopi().callMacro("sendIr", "tvVolumeUp.dat", dummyCallBack);});
-    		var btnTvVolDown		= webiopi().createButton("setGpio", "Down", function() {	webiopi().callMacro("sendIr", "tvVolumeDown.dat", dummyCallBack);});
-
-    		// オーディオ
-    		var btnTvAudioPower		= webiopi().createButton("setGpio", "Power", function() {	webiopi().callMacro("sendIr", "audioPower.dat", dummyCallBack);});
-    		var btnTvAudioAux		= webiopi().createButton("setGpio", "AUX", function() {	webiopi().callMacro("sendIr", "audioAux.dat", dummyCallBack);});
-
-    		// 照明
-			var btnPcRoomLight		= webiopi().createButton("setGpio", "PC Room", function() {	webiopi().callMacro("sendIr", "lightPcRoom.dat", dummyCallBack);});
-
-       	 	// Append button to HTML element with ID="controls" using jQuery
+			var btnAirConOnCool27	= webiopi().createButton("idAirConOnCool27", "27度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnCool27.dat", dummyCallBack);});
+			var btnAirConOnCool25	= webiopi().createButton("idAirConOnCool25", "25度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnCool25.dat", dummyCallBack);});
+			var btnAirConOnCool20	= webiopi().createButton("idAirConOnCool20", "20度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnCool20.dat", dummyCallBack);});
+			var btnAirConOnCool16	= webiopi().createButton("idAirConOnCool16", "16度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnCool16.dat", dummyCallBack);});
+			var btnAirConOnHeat30	= webiopi().createButton("idAirConOnHeat30", "30度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnHeat30.dat", dummyCallBack);});
+			var btnAirConOnHeat27	= webiopi().createButton("idAirConOnHeat27", "27度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnHeat27.dat", dummyCallBack);});
+			var btnAirConOnHeat25	= webiopi().createButton("idAirConOnHeat25", "25度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnHeat25.dat", dummyCallBack);});
+			var btnAirConOnHeat20	= webiopi().createButton("idAirConOnHeat20", "20度",	function(){ webiopi().callMacro("sendIr", "airconPowerOnHeat20.dat", dummyCallBack);});
+			var btnAirConOFF   		= webiopi().createButton("idAirConOff", "OFF", 			function(){ webiopi().callMacro("sendIr", "airconPowerOff.dat", dummyCallBack);	});
        	 	$("#cntrlAirConCool").append(btnAirConOnCool27);
        	 	$("#cntrlAirConCool").append(btnAirConOnCool25);
        	 	$("#cntrlAirConCool").append(btnAirConOnCool20);
@@ -58,22 +42,30 @@
        	 	$("#cntrlAirConHeat").append(btnAirConOnHeat20);
        	 	$("#cntrlAirConOff").append(btnAirConOFF);
 
-
+    		// テレビ
+    		var btnTvPower			= webiopi().createButton("idTvPower", "Power", 			function(){ webiopi().callMacro("sendIr", "tvPower.dat", dummyCallBack);});
+    		var btnTvChUp			= webiopi().createButton("idTvChUp", "UP", 				function(){ webiopi().callMacro("sendIr", "tvChUp.dat", dummyCallBack);});
+    		var btnTvChDown			= webiopi().createButton("idTvChDown", "Down", 			function(){ webiopi().callMacro("sendIr", "tvChDown.dat", dummyCallBack);});
+    		var btnTvVolUp			= webiopi().createButton("idTvVolUp", "UP", 			function(){ webiopi().callMacro("sendIr", "tvVolumeUp.dat", dummyCallBack);});
+    		var btnTvVolDown		= webiopi().createButton("idTvVolDown", "Down", 		function(){ webiopi().callMacro("sendIr", "tvVolumeDown.dat", dummyCallBack);});
        	 	$("#cntrlTvPower").append(btnTvPower);
-        	if (false) {
-       	 		$("#cntrlTvUpCntrolls").append(btnTvChUp);
-       	 		$("#cntrlTvDownCntrolls").append(btnTvChDown);
-       	 		$("#cntrlTvUpCntrolls").append(btnTvVolUp);
-       	 		$("#cntrlTvDownCntrolls").append(btnTvVolDown);
-        	} else {
-           	 	$("#tvChannelButton").append(btnTvChUp);
-           	 	$("#tvChannelButton").append(btnTvChDown);
+       	 	$("#cntrltvChannelButton").append(btnTvChUp);
+         	$("#cntrltvChannelButton").append(btnTvChDown);
+           	$("#cntrltvVolumeButton").append(btnTvVolUp);
+           	$("#cntrltvVolumeButton").append(btnTvVolDown);
 
-           	 	$("#tvVolumeButton").append(btnTvVolUp);
-           	 	$("#tvVolumeButton").append(btnTvVolDown);
-        	}
-       	 	$("#cntrlAudioPower").append(btnTvAudioPower);
-       	 	$("#cntrlAudioAux").append(btnTvAudioAux);
+    		// オーディオ
+    		var btnAudioPower		= webiopi().createButton("idAudioPower", "Power", 		function(){ webiopi().callMacro("sendIr", "audioPower.dat", dummyCallBack);});
+    		var btnAudioAux			= webiopi().createButton("idAudioAux", "AUX", 			function(){ webiopi().callMacro("sendIr", "audioAux.dat", dummyCallBack);});
+    		var btnAudioVolUp		= webiopi().createButton("idAudioVolUp", "Up", 			function(){ webiopi().callMacro("sendIr", "audioVolumeUp.dat", dummyCallBack);});
+    		var btnAudioVolDown		= webiopi().createButton("idAudioVolDown", "Down", 		function(){ webiopi().callMacro("sendIr", "audioVolumeDown.dat", dummyCallBack);});
+           	$("#cntrlAudioPower").append(btnAudioPower);
+       	 	$("#cntrlAudioAux").append(btnAudioAux);
+       		$("#cntrlAudioVolUp").append(btnAudioVolUp);
+       		$("#cntrlAudioVolDown").append(btnAudioVolDown);
+
+    		// 照明
+			var btnPcRoomLight		= webiopi().createButton("idPcRoomLight", "PC Room", 	function(){ webiopi().callMacro("sendIr", "lightPcRoom.dat", dummyCallBack);});
        	 	$("#cntrlPcRoomLight").append(btnPcRoomLight);
 
  	       	// Refresh GPIO buttons
@@ -89,46 +81,50 @@
 		Smart Home
 	</div>
 
+<!-- 	エアコン -->
 	<div class="box26" align="center" >
 		<span class="box-title">Air Conditioner</span>
 		<div class="subContainer">
-			冷房
+			<p>冷房</p>
 			<div id="cntrlAirConCool"class="smallButton"></div>
 		</div>
 		<div class="subContainer">
-			暖房
+			<p>暖房</p>
 			<div id="cntrlAirConHeat"class="smallButton"></div>
 		</div>
 		<div id="cntrlAirConOff"class="largeButton"></div>
 	</div>
 
-	<div class="box26">
+<!-- 	テレビ -->
+	<div class="box26" align="center" >
 		<span class="box-title">TV</span>
 		<div id="cntrlTvPower" align="center" class="largeButton"></div>
-		<!-- aya -->
-		<div id="tvItems" class="tvItems">
-			<div id="channelArea">
-				<p>Channel</p>
-				<div id="tvChannelButton"></div>
-			</div>
-			<div id="volumeArea">
-				<p>Volume</p>
-				<div id="tvVolumeButton"></div>
-			</div>
+		<div class="subContainer">
+			<p>Channel</p>
+			<div id="cntrltvChannelButton"class="smallButton"></div>
 		</div>
-
-<!-- 		<p>Channel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volume</p> -->
-<!-- 		<div id="cntrlTvUpCntrolls" align="center" class="smallButton"></div> -->
-<!-- 		<div id="cntrlTvDownCntrolls" align="center" class="smallButton"></div> -->
+		<div class="subContainer">
+			<p>Volume</p>
+			<div id="cntrltvVolumeButton"class="smallButton"></div>
+		</div>
 	</div>
 
-	<div class="box26">
+<!-- 	オーディオ -->
+	<div class="box26" align="center" >
 		<span class="box-title">Audio</span>
 		<div id="cntrlAudioPower" align="center" class="largeButton"></div>
 		<div id="cntrlAudioAux" align="center" class="largeButton"></div>
+		<div class="subContainer">
+			<div id="cntrlAudioVolUp"class="smallButton"></div>
+		</div>
+		<div class="subContainer">
+			<div id="cntrlAudioVolDown"class="smallButton"></div>
+		</div>
+
 	</div>
 
-	<div class="box26">
+<!-- 	電気 -->
+	<div class="box26" align="center" >
 		<span class="box-title">Light</span>
 		<div id="cntrlPcRoomLight" align="center" class="largeButton"></div>
 	</div>

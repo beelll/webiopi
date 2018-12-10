@@ -55,40 +55,27 @@ def loop():
     #webiopi.debug(">> Call loop 1")
 
     # Scheduling AirContos is disabled.
-    webiopi.sleep(1000)
-    return
-
-
-
-
-
-
-
+#    webiopi.sleep(1000)
+#    return
 
     # retrieve current datetime
-#    now = datetime.datetime.now()
+    now = datetime.datetime.now()
 
     # Exceptionally, don't execute program at holiday
-#    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-#        webiopi.sleep(1)
-#        return
+    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+        webiopi.sleep(1)
+        return
 
     # toggle ON all days at the correct time
-#   if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
-        #setGpio(IO_AIRCON_ON)
-#        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.LOW)
-#        webiopi.sleep(0.5)
-#        GPIO.digitalWrite(IO_AIRCON_ON, GPIO.HIGH)
+    if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", airconPowerOnHeat25.dat])
 
     # toggle OFF
-#    if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
-        #setGpio(IO_AIRCON_OFF)
-#        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.LOW)
-#        webiopi.sleep(0.5)
-#        GPIO.digitalWrite(IO_AIRCON_OFF, GPIO.HIGH)
+    if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", airconPowerOff.dat])
 
     # gives CPU some time before looping again
-#    webiopi.sleep(1)
+    webiopi.sleep(1)
 
 
 
@@ -114,7 +101,7 @@ def setGpio(ioNum):
 
 @webiopi.macro
 def sendIr(targetName):
-    webiopi.debug(targetName)
+    #webiopi.debug(targetName)
     subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", targetName])
     return 1
 

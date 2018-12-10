@@ -44,11 +44,13 @@
 
     		// テレビ
     		var btnTvPower			= webiopi().createButton("idTvPower", "Power", 			function(){ webiopi().callMacro("sendIr", "tvPower.dat", dummyCallBack);});
+    		var btnTvInputChange	= webiopi().createButton("idTvInputChange", "InputChange",function(){ webiopi().callMacro("sendIr", "tvInputChange.dat", dummyCallBack);});
     		var btnTvChUp			= webiopi().createButton("idTvChUp", "UP", 				function(){ webiopi().callMacro("sendIr", "tvChUp.dat", dummyCallBack);});
     		var btnTvChDown			= webiopi().createButton("idTvChDown", "Down", 			function(){ webiopi().callMacro("sendIr", "tvChDown.dat", dummyCallBack);});
     		var btnTvVolUp			= webiopi().createButton("idTvVolUp", "UP", 			function(){ webiopi().callMacro("sendIr", "tvVolumeUp.dat", dummyCallBack);});
     		var btnTvVolDown		= webiopi().createButton("idTvVolDown", "Down", 		function(){ webiopi().callMacro("sendIr", "tvVolumeDown.dat", dummyCallBack);});
        	 	$("#cntrlTvPower").append(btnTvPower);
+           	$("#cntrltvInputChangeButton").append(btnTvInputChange);
        	 	$("#cntrltvChannelButton").append(btnTvChUp);
          	$("#cntrltvChannelButton").append(btnTvChDown);
            	$("#cntrltvVolumeButton").append(btnTvVolUp);
@@ -99,6 +101,7 @@
 	<div class="box26" align="center" >
 		<span class="box-title">TV</span>
 		<div id="cntrlTvPower" align="center" class="largeButton"></div>
+		<div id="cntrltvInputChangeButton" align="center" class="largeButton"></div>
 		<div class="subContainer">
 			<p>Channel</p>
 			<div id="cntrltvChannelButton"class="smallButton"></div>

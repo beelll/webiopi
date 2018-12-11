@@ -19,8 +19,8 @@ IO_AUDIO_AUX = 22       # SW9
 IO_PC_ROOM_LIGHT = 23   # SW10
 
 # Scheduling aircon control settings
-HOUR_ON  = 5
-MINUTE_ON  = 30
+HOUR_ON  = 17
+MINUTE_ON  = 58
 HOUR_OFF = 7
 MINUTE_OFF = 15
 DATE_MONDAY = 0
@@ -52,8 +52,6 @@ def setup():
 
 # loop function is repeatedly called by WebIOPi
 def loop():
-    #webiopi.debug(">> Call loop 1")
-
     # Scheduling AirContos is disabled.
 #    webiopi.sleep(1000)
 #    return
@@ -68,7 +66,7 @@ def loop():
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", airconPowerOnHeat25.dat])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat25.dat"])
 
     # toggle OFF
     if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
@@ -76,6 +74,8 @@ def loop():
 
     # gives CPU some time before looping again
     webiopi.sleep(1)
+
+    #webiopi.debug(">> Call loop 1")
 
 
 

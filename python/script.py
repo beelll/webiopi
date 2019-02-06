@@ -1,7 +1,7 @@
 import webiopi
 import datetime
 import subprocess
-import configManager
+#import configManager
 
 webiopi.setDebug()
 

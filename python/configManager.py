@@ -16,7 +16,7 @@ def getConfig(section, key):
 
 
 def setConfig(section, key):
-    inifile.set('AirConTimer', 'useTimer', 'false')
+    inifile.set('AirConTimer', 'useTimer', 'true')
 
 
 # for Debug

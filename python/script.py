@@ -7,6 +7,9 @@ webiopi.setDebug()
 
 GPIO = webiopi.GPIO
 
+HOUR_ON  = 8  # Turn Light ON at 08:00
+HOUR_OFF = 18 # Turn Light OFF at 18:00
+
 # GPIO pin using BCM(GPIO) numbering
 IO_TV_POWER = 4         # SW1
 IO_TV_VOL_UP = 17       # SW2
@@ -105,5 +108,19 @@ def sendIr(targetName):
     #webiopi.debug(targetName)
     subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", targetName])
     return 1
+
+@webiopi.macro
+def getLightHours():
+    webiopi.debug(">> Call getLightHours")
+    return "%d;%d" % (HOUR_ON, HOUR_OFF)
+
+@webiopi.macro
+def setLightHours(on, off):
+    webiopi.debug(">> Call setLightHours")
+    global HOUR_ON, HOUR_OFF
+    HOUR_ON = int(on)
+    HOUR_OFF = int(off)
+    return getLightHours()
+
 
 

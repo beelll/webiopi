@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Smart Home</title>
+<link rel="stylesheet" type="text/css" href="css/switch.css">
+
+<script type="text/javascript" src="/webiopi.js"></script>
+<script type="text/javascript">
+	webiopi().ready(
+			function() {
+				// Following function will process data received from set/getLightHours macro.
+				var updateLightHours = function(macro, args, response) {
+					var hours = response.split(";");
+					// Following lines use jQuery functions
+					$("#inputOn").val(hours[0]);
+					$("#inputOff").val(hours[1]);
+				}
+
+				// Immediately call getLightHours macro to update the UI with current values
+				// "getLightHours" refers to macro name
+				// [] is an empty array, because getLightHours macro does not take any argument
+				// updateLightHours is the callback function, defined above
+				webiopi().callMacro("getLightHours", [], updateLightHours);
+
+				// Create a button to call setLightHours macro
+				var sendButton = webiopi().createButton(
+						"sendButton",
+						"Send",
+						function() {
+							// Arguments sent to the macro
+							var hours = [ $("#inputOn").val(),	$("#inputOff").val() ];
+							// Call the macro
+							webiopi().callMacro("setLightHours", hours,	updateLightHours);
+						});
+
+				// Append the button to the controls box using a jQuery function
+				$("#controls").append(sendButton);
+
+				// Refresh GPIO buttons
+				// pass true to refresh repeatedly of false to refresh once
+				webiopi().refreshGPIO(true);
+
+			});
+</script>
+
+
+</head>
+<body>
+	<!-- タイマー実行用スイッチ -->
+	<div id="switchArea" class="switchArea">
+		<input type="checkbox" id="switch1"> <label for="switch1"><span></span></label>
+		<div id="swImg"></div>
+	</div>
+
+
+
+	<div align="center">
+		Turn On at :<input type="text" id="inputOn" /><br>
+		Turn Off at: <input type="text" id="inputOff" />
+
+		<div id="controls"></div>
+
+	</div>
+
+
+
+
+
+	<!-- 	<form action="test.cgi" method="post"> -->
+	<!-- 	ON Time -->
+	<!-- 	<input type="text" name="onHour" size="3" maxlength="2"> -->
+	<!-- 	: -->
+	<!-- 	<input type="text" name="onMin" size="3" maxlength="2"> -->
+	<!-- 	<br> -->
+	<!-- 	OFF Time -->
+	<!-- 	<input type="text" name="offHour" size="3" maxlength="2"> -->
+	<!-- 	: -->
+	<!-- 	<input type="text" name="offMin" size="3" maxlength="2"> -->
+	<!-- 	<br> -->
+	<!--     <input type="submit" value="送信"> -->
+	<!-- 	</form> -->
+
+
+	<a href="index.html">戻る</a>
+</body>
+</html>
+
+

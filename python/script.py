@@ -68,7 +68,7 @@ def loop():
 
     # toggle ON all days at the correct time
     if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat25.dat"])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
 
     # toggle OFF
     if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):

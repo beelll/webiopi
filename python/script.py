@@ -55,8 +55,8 @@ def setup():
     # Config Load
     inifile = configparser.ConfigParser()
     inifile.read('./config.ini', 'UTF-8')
-    HOUR_ON = inifile.get('AirConTimer', 'onHour')
-    HOUR_ON = inifile.get('AirConTimer', 'offHour')
+    HOUR_ON = inifile.get('AIRCON', 'onHour')
+    HOUR_ON = inifile.get('AIRCON', 'offHour')
     #HOUR_ON = inifile['AirConTimer']['onHour']
     #HOUR_OFF = inifile['AirConTimer']['offHour']
     webiopi.debug(HOUR_ON)

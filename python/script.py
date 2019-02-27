@@ -69,7 +69,7 @@ def loop():
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
 
     # toggle OFF
-    if ((now.hour == HOUR_OFF.hour) and (now.minute == MINUTE_OFF.minute) and (now.second == 0)):
+    if ((now.hour == HOUR_OFF.hour) and (now.minute == HOUR_OFF.minute) and (now.second == 0)):
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
 
     # gives CPU some time before looping again

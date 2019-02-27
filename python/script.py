@@ -63,10 +63,8 @@ def setup():
     # 値の設定
     HOUR_ON  = datetime.time(int(array_on[0]),int(array_on[1]))
     HOUR_OFF = datetime.time(int(array_off[0]),int(array_off[1]))
-    webiopi.debug(HOUR_ON)
-    webiopi.debug(HOUR_OFF)
-
-
+    #webiopi.debug(HOUR_ON)
+    #webiopi.debug(HOUR_OFF)
 
 
 # loop function is repeatedly called by WebIOPi

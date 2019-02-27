@@ -1,7 +1,7 @@
 import webiopi
 import datetime
 import subprocess
-#import configManager
+import ConfigParser
 
 webiopi.setDebug()
 
@@ -32,6 +32,8 @@ DATE_SUNDAY = 6
 
 # setup function is automatically called at WebIOPi startup
 def setup():
+    global HOUR_ON, HOUR_OFF
+
     # This sleep need for the purpuse of clear "Errno 19"
     webiopi.sleep(20)
 
@@ -47,6 +49,16 @@ def setup():
     GPIO.setFunction(IO_AUDIO_POWER, GPIO.OUT)
     GPIO.setFunction(IO_AUDIO_AUX, GPIO.OUT)
     GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
+
+    # Config Load
+    inifile = ConfigParser.SafeConfigParser()
+    inifile.read('./config.ini')
+    HOUR_ON = inifile.get('AirConTimer', 'onHour')
+    HOUR_OFF = inifile.get('AirConTimer', 'onOff')
+    webiopi.debug(HOUR_ON)
+    webiopi.debug(HOUR_OFF)
+
+
 
 
 # loop function is repeatedly called by WebIOPi

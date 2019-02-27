@@ -20,10 +20,8 @@ IO_AUDIO_AUX = 22       # SW9
 IO_PC_ROOM_LIGHT = 23   # SW10
 
 # Scheduling aircon control settings
-HOUR_ON  = 5
-MINUTE_ON  = 30
-HOUR_OFF = 7
-MINUTE_OFF = 15
+HOUR_ON  = datetime.time(5,30)
+HOUR_OFF = datetime.time(7,15)
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
 DATE_WEDNESDAY = 2
@@ -67,11 +65,11 @@ def loop():
         return
 
     # toggle ON all days at the correct time
-    if ((now.hour == HOUR_ON) and (now.minute == MINUTE_ON) and (now.second == 0)):
+    if ((now.hour == HOUR_ON.hour) and (now.minute == HOUR_ON.minute) and (now.second == 0)):
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
 
     # toggle OFF
-    if ((now.hour == HOUR_OFF) and (now.minute == MINUTE_OFF) and (now.second == 0)):
+    if ((now.hour == HOUR_OFF.hour) and (now.minute == MINUTE_OFF.minute) and (now.second == 0)):
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
 
     # gives CPU some time before looping again
@@ -114,14 +112,17 @@ def getLightHours():
 @webiopi.macro
 def setLightHours(on, off):
     webiopi.debug(">> Call setLightHours")
+    webiopi.debug(on)
+    webiopi.debug(off)
+    global HOUR_ON, HOUR_OFF
+    # 引数を分割
+    array_on  = on.split(":")
+    array_off = off.split(":")
+    # 値の設定
+    HOUR_ON  = datetime.time(int(array_on[0]),int(array_on[1]))
+    HOUR_OFF = datetime.time(int(array_off[0]),int(array_off[1]))
     # ToDo
-    # 分と秒をスプリット　https://deviceplus.jp/hobby/raspberrypi_entry_032/
     # iniファイルに保存
     # トグルスイッチと連動
-    global HOUR_ON, HOUR_OFF
-    HOUR_ON = int(on)
-    HOUR_OFF = int(off)
-    return getLightHours()
-
-
+    return getLightHours()    # ToDo
 

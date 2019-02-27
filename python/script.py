@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import webiopi
 import datetime
 import subprocess

@@ -3,7 +3,7 @@
 import webiopi
 import datetime
 import subprocess
-import ConfigParser
+import configparser
 
 webiopi.setDebug()
 

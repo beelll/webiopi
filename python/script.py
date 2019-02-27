@@ -53,10 +53,10 @@ def setup():
     GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
 
     # Config Load
-    inifile = configparser.SafeConfigParser()
+    inifile = configparser.ConfigParser()
     inifile.read('./config.ini')
-    HOUR_ON = inifile.get('AirConTimer', 'onHour')
-    HOUR_OFF = inifile.get('AirConTimer', 'onOff')
+    HOUR_ON = config['AirConTimer']['onHour']
+    HOUR_OFF = config['AirConTimer']['offHour']
     webiopi.debug(HOUR_ON)
     webiopi.debug(HOUR_OFF)
 

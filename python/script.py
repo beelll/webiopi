@@ -107,7 +107,7 @@ def sendIr(targetName):
 @webiopi.macro
 def getLightHours():
     webiopi.debug(">> Call getLightHours")
-    return "%d;%d" % (HOUR_ON, HOUR_OFF)
+    return "%s;%s" % (HOUR_ON.strftime("%H:%M"),HOUR_OFF.strftime("%H:%M"))
 
 @webiopi.macro
 def setLightHours(on, off):
@@ -124,5 +124,5 @@ def setLightHours(on, off):
     # ToDo
     # iniファイルに保存
     # トグルスイッチと連動
-    return getLightHours()    # ToDo
+    return getLightHours()
 

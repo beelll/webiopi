@@ -55,10 +55,14 @@ def setup():
     # Config Load
     inifile = configparser.ConfigParser()
     inifile.read('./config.ini', 'UTF-8')
-    HOUR_ON = inifile.get('AIRCON', 'onHour')
-    HOUR_ON = inifile.get('AIRCON', 'offHour')
-    #HOUR_ON = inifile['AirConTimer']['onHour']
-    #HOUR_OFF = inifile['AirConTimer']['offHour']
+    on = inifile.get('AIRCON', 'onHour')
+    off = inifile.get('AIRCON', 'offHour')
+    # 引数を分割
+    array_on  = on.split(":")
+    array_off = off.split(":")
+    # 値の設定
+    HOUR_ON  = datetime.time(int(array_on[0]),int(array_on[1]))
+    HOUR_OFF = datetime.time(int(array_off[0]),int(array_off[1]))
     webiopi.debug(HOUR_ON)
     webiopi.debug(HOUR_OFF)
 

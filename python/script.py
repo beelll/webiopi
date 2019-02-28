@@ -35,7 +35,7 @@ DATE_SUNDAY = 6
 
 # INI File Define
 INI_FILE_PASS = '/home/pi/webiopi/python/config.ini'
-SECTION_AICRCONTIMER = 'aircontimer'
+SECTION_AICRCONTIMER = 'AIRCONTIMER'
 KEY_USETIMER = 'useTimer'
 KEY_ONTIME = 'onTime'
 KEY_OFFTIME = 'offTime'
@@ -65,8 +65,6 @@ def setup():
     # Config Load
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
-    #on = inifile.get('AIRCON', 'onHour')
-    #off = inifile.get('AIRCON', 'offHour')
     AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
     on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
     off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
@@ -151,8 +149,13 @@ def setAirconTimer(on, off):
     array_off = off.split(":")
     AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
     AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
+
+     # Configファイルに保存
+    inifile = configparser.ConfigParser()
+    inifile.read(INI_FILE_PASS, 'UTF-8')
+    inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
+    inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
     # ToDo
-    # iniファイルに保存
     # トグルスイッチと連動
     return getAirconTimer()
 

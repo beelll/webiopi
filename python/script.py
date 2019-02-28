@@ -22,7 +22,7 @@ IO_AUDIO_AUX = 22       # SW9
 IO_PC_ROOM_LIGHT = 23   # SW10
 
 # Scheduling aircon control settings
-AIRCON_USE_TIMER
+AIRCON_USE_TIMER = 'false'
 AIRCON_ON_TIME  = datetime.time(5,30)
 AIRCON_OFF_TIME = datetime.time(7,15)
 DATE_MONDAY = 0

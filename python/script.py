@@ -34,7 +34,7 @@ DATE_SATURDAY = 5
 DATE_SUNDAY = 6
 
 # INI File Define
-INI_FILE_PASS = './config.ini'
+INI_FILE_PASS = '/home/pi/webiopi/python/config.ini'
 SECTION_AICRCONTIMER = 'aircontimer'
 KEY_USETIMER = 'useTimer'
 KEY_ONTIME = 'onTime'

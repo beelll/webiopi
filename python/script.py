@@ -35,7 +35,7 @@ DATE_SUNDAY = 6
 
 # INI File Define
 INI_FILE_PASS = './config.ini'
-SECTION_AICRCONTIMER = 'AIRCON'
+SECTION_AICRCONTIMER = 'aircontimer'
 KEY_USETIMER = 'useTimer'
 KEY_ONTIME = 'onTime'
 KEY_OFFTIME = 'offTime'

@@ -12,7 +12,7 @@
 	webiopi().ready(
 			function() {
 				// Following function will process data received from set/getLightHours macro.
-				var updateLightHours = function(macro, args, response) {
+				var updateAirconTimers = function(macro, args, response) {
 					var hours = response.split(";");
 					// Following lines use jQuery functions
 					$("#inputOn").val(hours[0]);
@@ -23,7 +23,7 @@
 				// "getLightHours" refers to macro name
 				// [] is an empty array, because getLightHours macro does not take any argument
 				// updateLightHours is the callback function, defined above
-				webiopi().callMacro("getLightHours", [], updateLightHours);
+				webiopi().callMacro("getAirconTimer", [], updateAirconTimers);
 
 				// Create a button to call setLightHours macro
 				var sendButton = webiopi().createButton(
@@ -33,7 +33,7 @@
 							// Arguments sent to the macro
 							var hours = [ $("#inputOn").val(),	$("#inputOff").val() ];
 							// Call the macro
-							webiopi().callMacro("setLightHours", hours,	updateLightHours);
+							webiopi().callMacro("setAirconTimer", hours, updateAirconTimers);
 						});
 
 				// Append the button to the controls box using a jQuery function

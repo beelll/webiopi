@@ -22,8 +22,9 @@ IO_AUDIO_AUX = 22       # SW9
 IO_PC_ROOM_LIGHT = 23   # SW10
 
 # Scheduling aircon control settings
-HOUR_ON  = datetime.time(5,30)
-HOUR_OFF = datetime.time(7,15)
+AIRCON_USE_TIMER
+AIRCON_ON_TIME  = datetime.time(5,30)
+AIRCON_OFF_TIME = datetime.time(7,15)
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
 DATE_WEDNESDAY = 2
@@ -32,9 +33,19 @@ DATE_FRIDAY = 4
 DATE_SATURDAY = 5
 DATE_SUNDAY = 6
 
+# INI File Define
+INI_FILE_PASS = './config.ini'
+SECTION_AICRCONTIMER = 'AIRCONTIMER'
+KEY_USETIMER = 'useTimer'
+KEY_ONTIME = 'onTime'
+KEY_OFFTIME = 'offTime'
+
+
+
+
 # setup function is automatically called at WebIOPi startup
 def setup():
-    global HOUR_ON, HOUR_OFF
+    global AIRCON_USE_TIMER, AIRCON_ON_TIME, AIRCON_OFF_TIME
 
     # This sleep need for the purpuse of clear "Errno 19"
     webiopi.sleep(20)
@@ -54,17 +65,18 @@ def setup():
 
     # Config Load
     inifile = configparser.ConfigParser()
-    inifile.read('./config.ini', 'UTF-8')
-    on = inifile.get('AIRCON', 'onHour')
-    off = inifile.get('AIRCON', 'offHour')
-    # 引数を分割
+    inifile.read(INI_FILE_PASS, 'UTF-8')
+    AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
+    on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
+    off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
+    # 引数を分割して設定
     array_on  = on.split(":")
     array_off = off.split(":")
-    # 値の設定
-    HOUR_ON  = datetime.time(int(array_on[0]),int(array_on[1]))
-    HOUR_OFF = datetime.time(int(array_off[0]),int(array_off[1]))
-    #webiopi.debug(HOUR_ON)
-    #webiopi.debug(HOUR_OFF)
+    AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
+    AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
+    webiopi.debug(AIRCON_USE_TIMER)
+    webiopi.debug(AIRCON_ON_TIME)
+    webiopi.debug(AIRCON_OFF_TIME)
 
 
 # loop function is repeatedly called by WebIOPi
@@ -83,11 +95,11 @@ def loop():
         return
 
     # toggle ON all days at the correct time
-    if ((now.hour == HOUR_ON.hour) and (now.minute == HOUR_ON.minute) and (now.second == 0)):
+    if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
 
     # toggle OFF
-    if ((now.hour == HOUR_OFF.hour) and (now.minute == HOUR_OFF.minute) and (now.second == 0)):
+    if ((now.hour == AIRCON_OFF_TIME.hour) and (now.minute == AIRCON_OFF_TIME.minute) and (now.second == 0)):
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
 
     # gives CPU some time before looping again
@@ -123,24 +135,23 @@ def sendIr(targetName):
     return 1
 
 @webiopi.macro
-def getLightHours():
-    webiopi.debug(">> Call getLightHours")
-    return "%s;%s" % (HOUR_ON.strftime("%H:%M"),HOUR_OFF.strftime("%H:%M"))
+def getAirconTimer():
+    webiopi.debug(">> Call getAirconTimer")
+    return "%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"))
 
 @webiopi.macro
-def setLightHours(on, off):
-    webiopi.debug(">> Call setLightHours")
+def setAirconTimer(on, off):
+    webiopi.debug(">> Call setAirconTimer")
     webiopi.debug(on)
     webiopi.debug(off)
-    global HOUR_ON, HOUR_OFF
-    # 引数を分割
+    global AIRCON_ON_TIME, AIRCON_OFF_TIME
+    # 引数を分割して設定
     array_on  = on.split(":")
     array_off = off.split(":")
-    # 値の設定
-    HOUR_ON  = datetime.time(int(array_on[0]),int(array_on[1]))
-    HOUR_OFF = datetime.time(int(array_off[0]),int(array_off[1]))
+    AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
+    AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
     # ToDo
     # iniファイルに保存
     # トグルスイッチと連動
-    return getLightHours()
+    return getAirconTimer()
 

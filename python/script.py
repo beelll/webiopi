@@ -65,9 +65,11 @@ def setup():
     # Config Load
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
+    on = inifile.get('AIRCON', 'onHour')
+    off = inifile.get('AIRCON', 'offHour')
     AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
-    on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
-    off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
+    #on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
+    #off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
     # 引数を分割して設定
     array_on  = on.split(":")
     array_off = off.split(":")

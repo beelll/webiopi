@@ -141,15 +141,10 @@ def sendIr(targetName):
 
 @webiopi.macro
 def getAirconTimer():
-    webiopi.debug(">> Call getAirconTimer")
     return "%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"))
 
 @webiopi.macro
 def setAirconTimer(on, off):
-    webiopi.debug(">> Call setAirconTimer")
-    webiopi.debug(on)
-    webiopi.debug(off)
-
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')

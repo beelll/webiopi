@@ -17,6 +17,7 @@
 					// Following lines use jQuery functions
 					$("#inputOn").val(hours[0]);
 					$("#inputOff").val(hours[1]);
+					$("#airconTimerSW").val(hours[2]);
 				}
 
 				// Immediately call getLightHours macro to update the UI with current values
@@ -31,7 +32,7 @@
 						"Send",
 						function() {
 							// Arguments sent to the macro
-							var hours = [ $("#inputOn").val(),	$("#inputOff").val() ];
+							var hours = [ $("#inputOn").val(),	$("#inputOff").val(), $("airconTimerSW").val() ];
 							// Call the macro
 							webiopi().callMacro("setAirconTimer", hours, updateAirconTimers);
 						});
@@ -51,7 +52,7 @@
 <body>
 	<!-- タイマー実行用スイッチ -->
 	<div id="switchArea" class="switchArea">
-		<input type="checkbox" id="switch1"> <label for="switch1"><span></span></label>
+		<input type="checkbox" id="airconTimerSW"> <label for="airconTimerSW"><span></span></label>
 		<div id="swImg"></div>
 	</div>
 

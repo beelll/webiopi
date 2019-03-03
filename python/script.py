@@ -144,16 +144,18 @@ def getAirconTimer():
     return "%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"))
 
 @webiopi.macro
-def setAirconTimer(on, off):
+def setAirconTimer(on, off, sw):
+
+    webiopi.debug(sw)
+
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
+    inifile.set(SECTION_AICRCONTIMER, KEY_USETIMER, sw)
     inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
     inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
     with open(INI_FILE_PASS, 'w', encoding='utf8') as file:
         inifile.write(file)
-    # ToDo
-    # トグルスイッチと連動
 
     # Config -> Global
     readIniFile()

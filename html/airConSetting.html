@@ -32,7 +32,7 @@
 						"Send",
 						function() {
 							// Arguments sent to the macro
-							var hours = [ $("#inputOn").val(),	$("#inputOff").val(), $("#airconTimerSW").val() ];
+							var hours = [ $("#inputOn").val(),	$("#inputOff").val(), $("#airconTimerSW").prop("checked") ];
 							// Call the macro
 							webiopi().callMacro("setAirconTimer", hours, updateAirconTimers);
 						});

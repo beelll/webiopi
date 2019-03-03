@@ -79,22 +79,13 @@ def readIniFile():
     array_off = off.split(":")
     AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
     AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
-    webiopi.debug(AIRCON_USE_TIMER)
-    webiopi.debug(AIRCON_ON_TIME)
-    webiopi.debug(AIRCON_OFF_TIME)
+    #webiopi.debug(AIRCON_USE_TIMER)
+    #webiopi.debug(AIRCON_ON_TIME)
+    #webiopi.debug(AIRCON_OFF_TIME)
 
 
 # loop function is repeatedly called by WebIOPi
 def loop():
-    #webiopi.debug(">> Call loop 1")
-    # Scheduling AirContos is disabled.
-    #webiopi.sleep(1000)
-    #return
-
-    webiopi.debug(AIRCON_USE_TIMER)
-    webiopi.debug(AIRCON_ON_TIME)
-    webiopi.debug(AIRCON_OFF_TIME)
-
     if (AIRCON_USE_TIMER == 'false'):
         webiopi.sleep(1)
         return
@@ -103,19 +94,19 @@ def loop():
     now = datetime.datetime.now()
 
     # Exceptionally, don't execute program at holiday
-    #if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-        #webiopi.sleep(1)
-        #return
+    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+        webiopi.sleep(1)
+        return
 
     # toggle ON all days at the correct time
     if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):
-        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
+        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
     # toggle OFF
     if ((now.hour == AIRCON_OFF_TIME.hour) and (now.minute == AIRCON_OFF_TIME.minute) and (now.second == 0)):
-        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
+        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
     # gives CPU some time before looping again
     webiopi.sleep(1)
@@ -134,12 +125,6 @@ def setGpio(ioNum):
     GPIO.digitalWrite(gpio, GPIO.LOW)
     webiopi.sleep(0.5)
     GPIO.digitalWrite(gpio, GPIO.HIGH)
-    #print("Low")
-    #webiopi.sleep(1)
-        #subprocess.call(["sudo", "./home/pi/Desktop/Study/Servomotor/turnLeft"])
-    #else:
-    #    GPIO.digitalWrite(IO_PC_ROOM_LIGHT, GPIO.LOW)
-    #    print("Low")
     return 1
 
 

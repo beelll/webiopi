@@ -91,21 +91,26 @@ def loop():
 #    webiopi.sleep(1000)
 #    return
 
+    if (AIRCON_USE_TIMER == 'false'):
+        webiopi.sleep(1)
+        return
+
     # retrieve current datetime
     now = datetime.datetime.now()
 
     # Exceptionally, don't execute program at holiday
-    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-        webiopi.sleep(1)
-        return
+    #if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+        #webiopi.sleep(1)
+        #return
 
     # toggle ON all days at the correct time
     if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
+        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOnHeat20.dat"])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
     # toggle OFF
     if ((now.hour == AIRCON_OFF_TIME.hour) and (now.minute == AIRCON_OFF_TIME.minute) and (now.second == 0)):
-        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
+        subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
     # gives CPU some time before looping again
     webiopi.sleep(1)

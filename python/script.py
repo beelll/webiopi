@@ -152,9 +152,11 @@ def setAirconTimer(on, off):
 
      # Configファイルに保存
     inifile = configparser.ConfigParser()
-    inifile.read(INI_FILE_PASS, 'UTF-8')
     inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
     inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
+    with open(INI_FILE_PASS, 'w') as file:
+        inifile.write(file)
+
     # ToDo
     # トグルスイッチと連動
     return getAirconTimer()

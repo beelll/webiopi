@@ -91,6 +91,10 @@ def loop():
 #    webiopi.sleep(1000)
 #    return
 
+    webiopi.debug(AIRCON_USE_TIMER)
+    webiopi.debug(AIRCON_ON_TIME)
+    webiopi.debug(AIRCON_OFF_TIME)
+
     if (AIRCON_USE_TIMER == 'false'):
         webiopi.sleep(1)
         return
@@ -110,6 +114,7 @@ def loop():
 
     # toggle OFF
     if ((now.hour == AIRCON_OFF_TIME.hour) and (now.minute == AIRCON_OFF_TIME.minute) and (now.second == 0)):
+        #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
     # gives CPU some time before looping again
@@ -150,9 +155,6 @@ def getAirconTimer():
 
 @webiopi.macro
 def setAirconTimer(on, off, sw):
-
-    webiopi.debug(sw)
-
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')

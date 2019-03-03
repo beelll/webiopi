@@ -44,8 +44,6 @@ KEY_OFFTIME = 'offTime'
 
 # setup function is automatically called at WebIOPi startup
 def setup():
-    global AIRCON_USE_TIMER, AIRCON_ON_TIME, AIRCON_OFF_TIME
-
     # This sleep need for the purpuse of clear "Errno 19"
     webiopi.sleep(20)
 
@@ -62,9 +60,17 @@ def setup():
     GPIO.setFunction(IO_AUDIO_AUX, GPIO.OUT)
     GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
 
-    # Config Load
+    # Update Config
+    readIniFile()
+
+
+# Read Config File
+def readIniFile():
+    global AIRCON_USE_TIMER, AIRCON_ON_TIME, AIRCON_OFF_TIME
+
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
+
     AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
     on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
     off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
@@ -143,23 +149,18 @@ def setAirconTimer(on, off):
     webiopi.debug(">> Call setAirconTimer")
     webiopi.debug(on)
     webiopi.debug(off)
-    global AIRCON_ON_TIME, AIRCON_OFF_TIME
-    # 引数を分割して設定
-    array_on  = on.split(":")
-    array_off = off.split(":")
-    AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
-    AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
 
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
-    #inifile.add_section(SECTION_AICRCONTIMER)
     inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
     inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
     with open(INI_FILE_PASS, 'w', encoding='utf8') as file:
         inifile.write(file)
-
     # ToDo
     # トグルスイッチと連動
+
+    # Config -> Global
+    readIniFile()
     return getAirconTimer()
 

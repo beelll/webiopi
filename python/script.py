@@ -150,9 +150,10 @@ def setAirconTimer(on, off):
     AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
     AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
 
-     # Configファイルに保存
+    # Configファイルに保存
     inifile = configparser.ConfigParser()
-    inifile.add_section(SECTION_AICRCONTIMER)
+    inifile.read(INI_FILE_PASS, 'UTF-8')
+    #inifile.add_section(SECTION_AICRCONTIMER)
     inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
     inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
     with open(INI_FILE_PASS, 'w', encoding='utf8') as file:

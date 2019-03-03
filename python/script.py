@@ -88,8 +88,8 @@ def readIniFile():
 def loop():
     #webiopi.debug(">> Call loop 1")
     # Scheduling AirContos is disabled.
-#    webiopi.sleep(1000)
-#    return
+    #webiopi.sleep(1000)
+    #return
 
     webiopi.debug(AIRCON_USE_TIMER)
     webiopi.debug(AIRCON_ON_TIME)

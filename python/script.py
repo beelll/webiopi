@@ -25,6 +25,8 @@ IO_PC_ROOM_LIGHT = 23   # SW10
 AIRCON_USE_TIMER = 'false'
 AIRCON_ON_TIME  = datetime.time(5,30)
 AIRCON_OFF_TIME = datetime.time(7,15)
+AIRCON_HEAT_ON_TEMP = 16
+AIRCON_COOL_ON_TEMP = 25
 DATE_MONDAY = 0
 DATE_TUESDAY = 1
 DATE_WEDNESDAY = 2
@@ -36,10 +38,11 @@ DATE_SUNDAY = 6
 # INI File Define
 INI_FILE_PASS = '/home/pi/webiopi/python/config.ini'
 SECTION_AICRCONTIMER = 'AIRCONTIMER'
-KEY_USETIMER = 'useTimer'
 KEY_ONTIME = 'onTime'
 KEY_OFFTIME = 'offTime'
-
+KEY_USETIMER = 'useTimer'
+KEY_HEATONTEMP = 'heatOnTemp'
+KEY_COOLONTEMP = 'coolOnTemp'
 
 
 # setup function is automatically called at WebIOPi startup
@@ -71,7 +74,6 @@ def readIniFile():
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
 
-    AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
     on = inifile.get(SECTION_AICRCONTIMER, KEY_ONTIME)
     off = inifile.get(SECTION_AICRCONTIMER, KEY_OFFTIME)
     # 引数を分割して設定
@@ -79,6 +81,10 @@ def readIniFile():
     array_off = off.split(":")
     AIRCON_ON_TIME  = datetime.time(int(array_on[0]),int(array_on[1]))
     AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
+
+    AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
+    AIRCON_HEAT_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_HEATONTEMP)
+    AIRCON_COOL_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_COOLONTEMP)
     #webiopi.debug(AIRCON_USE_TIMER)
     #webiopi.debug(AIRCON_ON_TIME)
     #webiopi.debug(AIRCON_OFF_TIME)

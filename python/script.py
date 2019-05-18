@@ -4,6 +4,10 @@ import webiopi
 import datetime
 import subprocess
 import configparser
+import sys
+sys.path.append('/home/pi/prog/temperature/')
+import temperature
+
 
 webiopi.setDebug()
 
@@ -65,6 +69,9 @@ def setup():
 
     # Update Config
     readIniFile()
+
+    # Run Temperature Thread
+    temperature.startGetTempThread()
 
 
 # Read Config File

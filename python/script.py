@@ -129,7 +129,7 @@ def airconTimer(now):
 
 
 def uploadTempToIFTTT(now):
-    if ((now.minute % 2)  == 0):     # every 30 minutes
+    if (((now.minute % 2)  == 0) and (now.second == 0)):     # every 30 minutes
         temperature.uploadIFTTT()
 
 

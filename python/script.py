@@ -71,7 +71,7 @@ def setup():
     readIniFile()
 
     # Run Temperature Thread
-    temperature.startGetTempThread()
+    #temperature.startGetTempThread()
 
 
 # Read Config File
@@ -99,16 +99,22 @@ def readIniFile():
 
 # loop function is repeatedly called by WebIOPi
 def loop():
-    if (AIRCON_USE_TIMER == 'false'):
-        webiopi.sleep(1)
-        return
-
     # retrieve current datetime
     now = datetime.datetime.now()
+    airconTimer(now)
+    uploadTempToIFTTT(now)
+
+    # gives CPU some time before looping again
+    webiopi.sleep(1)
+
+
+
+def airconTimer(now):
+    if (AIRCON_USE_TIMER == 'false'):
+        return
 
     # Exceptionally, don't execute program at holiday
     if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-        webiopi.sleep(1)
         return
 
     # toggle ON all days at the correct time
@@ -121,9 +127,10 @@ def loop():
         subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "airconPowerOff.dat"])
         #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
-    # gives CPU some time before looping again
-    webiopi.sleep(1)
 
+def uploadTempToIFTTT(now):
+    if ((now.minute % 2)  == 0):     # every 30 minutes
+        temperature.uploadIFTTT()
 
 
 
@@ -132,6 +139,7 @@ def loop():
     #GPIO.digitalWrite(LIGHT, GPIO.LOW)
 
 
+# ---------------------------- Call From Webiopi JavaScript -------------------------
 @webiopi.macro
 def setGpio(ioNum):
     gpio = int(ioNum)

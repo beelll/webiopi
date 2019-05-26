@@ -36,7 +36,7 @@
 				// [] is an empty array, because getLightHours macro does not take any argument
 				// updateLightHours is the callback function, defined above
 				webiopi().callMacro("getAirconTimer", [], updateAirconTimers);
-				webiopi().callMacro("getCurrentTemperature", [], upadteCurrentTemperature);
+				webiopi().callMacro("getCurrentTemperature", [], updateCurrentTemperature);
 
 				// Create a button to call setLightHours macro
 				var sendButton = webiopi().createButton(
@@ -55,7 +55,7 @@
 
 				// Refresh GPIO buttons
 				// pass true to refresh repeatedly of false to refresh once
-				//webiopi().refreshGPIO(true);
+				webiopi().refreshGPIO(true);
 
 			});
 </script>

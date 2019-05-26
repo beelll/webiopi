@@ -14,16 +14,16 @@ webiopi.setDebug()
 GPIO = webiopi.GPIO
 
 # GPIO pin using BCM(GPIO) numbering
-IO_TV_POWER = 4         # SW1
-IO_TV_VOL_UP = 17       # SW2
-IO_TV_VOL_DOWN = 27     # SW3
-IO_TV_CH_UP = 18        # SW4
-IO_TV_CH_DOWN = 5       # SW5
-IO_AIRCON_ON = 6        # SW6
-IO_AIRCON_OFF = 13      # SW7
-IO_AUDIO_POWER = 12     # SW8
-IO_AUDIO_AUX = 22       # SW9
-IO_PC_ROOM_LIGHT = 23   # SW10
+#IO_TV_POWER = 4         # SW1
+#IO_TV_VOL_UP = 17       # SW2
+#IO_TV_VOL_DOWN = 27     # SW3
+#IO_TV_CH_UP = 18        # SW4
+#IO_TV_CH_DOWN = 5       # SW5
+#IO_AIRCON_ON = 6        # SW6
+#IO_AIRCON_OFF = 13      # SW7
+#IO_AUDIO_POWER = 12     # SW8
+#IO_AUDIO_AUX = 22       # SW9
+#IO_PC_ROOM_LIGHT = 23   # SW10
 
 # Scheduling aircon control settings
 AIRCON_USE_TIMER = 'false'
@@ -55,17 +55,17 @@ def setup():
     webiopi.sleep(20)
 
     # set the GPIO used by the light to output
-    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
-    GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
-    GPIO.setFunction(IO_TV_VOL_UP, GPIO.OUT)
-    GPIO.setFunction(IO_TV_VOL_DOWN, GPIO.OUT)
-    GPIO.setFunction(IO_TV_CH_UP, GPIO.OUT)
-    GPIO.setFunction(IO_TV_CH_DOWN, GPIO.OUT)
-    GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)
-    GPIO.setFunction(IO_AIRCON_OFF, GPIO.OUT)
-    GPIO.setFunction(IO_AUDIO_POWER, GPIO.OUT)
-    GPIO.setFunction(IO_AUDIO_AUX, GPIO.OUT)
-    GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_POWER, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_VOL_UP, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_VOL_DOWN, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_CH_UP, GPIO.OUT)
+    #GPIO.setFunction(IO_TV_CH_DOWN, GPIO.OUT)
+    #GPIO.setFunction(IO_AIRCON_ON, GPIO.OUT)
+    #GPIO.setFunction(IO_AIRCON_OFF, GPIO.OUT)
+    #GPIO.setFunction(IO_AUDIO_POWER, GPIO.OUT)
+    #GPIO.setFunction(IO_AUDIO_AUX, GPIO.OUT)
+    #GPIO.setFunction(IO_PC_ROOM_LIGHT, GPIO.OUT)
 
     # Update Config
     readIniFile()
@@ -92,9 +92,6 @@ def readIniFile():
     AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
     AIRCON_HEAT_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_HEATONTEMP)
     AIRCON_COOL_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_COOLONTEMP)
-    #webiopi.debug(AIRCON_USE_TIMER)
-    #webiopi.debug(AIRCON_ON_TIME)
-    #webiopi.debug(AIRCON_OFF_TIME)
 
 
 # loop function is repeatedly called by WebIOPi
@@ -108,7 +105,7 @@ def loop():
     webiopi.sleep(1)
 
 
-
+# Auto ON/OFF Aicrconditioner at every morning.
 def airconTimer(now):
     if (AIRCON_USE_TIMER == 'false'):
         return
@@ -116,6 +113,8 @@ def airconTimer(now):
     # Exceptionally, don't execute program at holiday
     if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
         return
+
+    # TODO:現在温度と閾値温度を比較してOFF/ONを決める　*****************
 
     # toggle ON all days at the correct time
     if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):
@@ -128,6 +127,7 @@ def airconTimer(now):
         #subprocess.call(["sh", "/home/pi/webiopi/I2C0x52-IR/command02.sh", "lightPcRoom.dat"])
 
 
+# Auto upload temperature info to IFTTT
 def uploadTempToIFTTT(now):
     if (((now.minute % 30)  == 0) and (now.second == 0)):     # every 30 minutes
         temperature.uploadIFTTT()

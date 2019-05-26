@@ -162,7 +162,7 @@ def getAirconTimer():
 
 @webiopi.macro
 def setAirconTimer(on, off, sw):
-    webiopi.debug(sw)
+    #webiopi.debug(sw)
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')

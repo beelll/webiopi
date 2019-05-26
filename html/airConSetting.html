@@ -17,7 +17,7 @@
 					// Following lines use jQuery functions
 					$("#inputOn").val(hours[0]);
 					$("#inputOff").val(hours[1]);
-					$("#airconTimerSW").val(hours[2]);
+					$("#airconTimerSW").prop("checked", hours[2]);
 				}
 
 				// Immediately call getAirconTimer macro to update the UI with current values

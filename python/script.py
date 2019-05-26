@@ -114,8 +114,9 @@ def airconTimer(now):
         return
 
     # Exceptionally, don't execute program at holiday
-    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-        return
+    # TODO:デバッグ用に一時的に削除
+#    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+#        return
 
     # toggle ON all days at the correct time
     if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):

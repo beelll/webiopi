@@ -27,8 +27,6 @@
 				}
 				var updateCurrentTemperature = function(macro, args, response) {
 					var temps = response.split(";");
-					//$("#temperature").val(temps[0]);
-					//$("#humidity").val(temps[1]);
 					$("#temperature").text(temps[0]);
 					$("#humidity").text(temps[1]);
 				}
@@ -74,12 +72,8 @@
 	<!-- ステータス -->
 	<div class="box26" align="center" >
 		<span class="box-title">すてーたす</span>
-		<!--
-		現在温度 : <input type="text" id="temperature" /><br>
-		現在湿度 : <input type="text" id="humidity" />
-		 -->
-		現在温度 : <div id="temperature">0</div>度<br>
-		現在湿度 : <div id="humidity">0</div>％<br>
+		現在温度 : <span id="temperature">0</span>度<br>
+		現在湿度 : <span id="humidity">0</span>％<br>
 	</div>
 
 	<!-- タイマーによる自動制御 -->

@@ -180,8 +180,8 @@ def setAirconTimer(on, off, sw):
 def getCurrentTemperature():
     #ret = temperature.getTempBySocket()
     #webiopi.debug('RET  : ' + ret)
-    webiopi.debug('TEMP : ' + temperature.getTemperature())
-    webiopi.debug('HUMI : ' + temperature.getHumidity())
+    webiopi.debug('TEMP : ' + str(temperature.getTemperature()))
+    webiopi.debug('HUMI : ' + str(temperature.getHumidity()))
     return "%s;%s" % (temperature.getTemperature(), temperature.getHumidity())
 
 

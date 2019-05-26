@@ -114,9 +114,8 @@ def airconTimer(now):
         return
 
     # Exceptionally, don't execute program at holiday
-    # TODO:デバッグ用に一時的に削除
-#    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
-#        return
+    if ((now.weekday() == DATE_SATURDAY) or (now.weekday() == DATE_SUNDAY)):
+        return
 
     # toggle ON all days at the correct time
     if ((now.hour == AIRCON_ON_TIME.hour) and (now.minute == AIRCON_ON_TIME.minute) and (now.second == 0)):
@@ -164,7 +163,6 @@ def getAirconTimer():
 
 @webiopi.macro
 def setAirconTimer(on, off, sw):
-    #webiopi.debug(sw)
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')

@@ -176,3 +176,10 @@ def setAirconTimer(on, off, sw):
     readIniFile()
     return getAirconTimer()
 
+@webiopi.macro
+def getCurrentTemperature():
+    webiopi.debug(temperature.getTemperature())
+    webiopi.debug(temperature.getHumidity())
+    return "%s;%s" % (temperature.getTemperature(), temperature.getHumidity())
+
+

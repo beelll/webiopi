@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Smart Home</title>
 <link rel="stylesheet" type="text/css" href="css/switch.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
 <script type="text/javascript" src="/webiopi.js"></script>
 <script type="text/javascript">
@@ -24,17 +25,23 @@
 						$("#airconTimerSW").prop("checked", false);
 					}
 				}
+				var updateCurrentTemperature = function(macro, args, response) {
+					var temps = response.split(";");
+					$("#temperature").val(temps[0]);
+					$("#humidity").val(temps[1]);
+				}
 
 				// Immediately call getAirconTimer macro to update the UI with current values
 				// "getAirconTimer" refers to macro name
 				// [] is an empty array, because getLightHours macro does not take any argument
 				// updateLightHours is the callback function, defined above
 				webiopi().callMacro("getAirconTimer", [], updateAirconTimers);
+				webiopi().callMacro("getCurrentTemperature", [], upadteCurrentTemperature);
 
 				// Create a button to call setLightHours macro
 				var sendButton = webiopi().createButton(
 						"sendButton",
-						"Send",
+						"そうしん",
 						function() {
 							// Arguments sent to the macro
 							var hours = [ $("#inputOn").val(),	$("#inputOff").val(), $("#airconTimerSW").prop("checked") ];
@@ -56,19 +63,29 @@
 
 </head>
 <body>
-	<p>だれか早く実装してくれないとダサイ画面から脱出できないモチ</p>
-	<!-- タイマー実行用スイッチ -->
-	<div id="switchArea" class="switchArea">
-		<input type="checkbox" id="airconTimerSW"> <label for="airconTimerSW"><span></span></label>
-		<div id="swImg"></div>
+	<div align="center">
+		<p>エアコン関連</p>
+		<p>だれか早く実装してくれないとダサイ画面から脱出できないモチ！</p>
 	</div>
 
-	<div align="center">
-		Turn On at :<input type="text" id="inputOn" /><br>
-		Turn Off at: <input type="text" id="inputOff" />
+	<!-- ステータス -->
+	<div class="box26" align="center" >
+		<span class="box-title">すてーたす</span>
+		現在温度 : <input type="text" id="temperature" /><br>
+		現在湿度 : <input type="text" id="humidity" />
+	</div>
 
+	<!-- タイマーによる自動制御 -->
+	<div class="box26" align="center" >
+		<span class="box-title">たいまーによる自動制御</span>
+		<div id="switchArea" class="switchArea">
+			<input type="checkbox" id="airconTimerSW"> <label for="airconTimerSW"><span></span></label>
+			<div id="swImg"></div>
+		</div>
+
+		 ON時刻 : <input type="text" id="inputOn" /><br>
+		OFF時刻 : <input type="text" id="inputOff" />
 		<div id="controls"></div>
-
 	</div>
 
 	<a href="index.html">戻る</a>

@@ -158,6 +158,8 @@ def sendIr(targetName):
 
 @webiopi.macro
 def getAirconTimer():
+    # Config -> Global
+    readIniFile()
     return "%s;%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"),AIRCON_USE_TIMER)
 
 @webiopi.macro

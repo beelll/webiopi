@@ -158,7 +158,7 @@ def sendIr(targetName):
 
 @webiopi.macro
 def getAirconTimer():
-    return "%s;%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"),KEY_USETIMER)
+    return "%s;%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"),AIRCON_USE_TIMER)
 
 @webiopi.macro
 def setAirconTimer(on, off, sw):

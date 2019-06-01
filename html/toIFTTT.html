@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Smart Home</title>
+<link rel="stylesheet" type="text/css" href="css/switch.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="/webiopi.js"></script>
+<script type="text/javascript">
+	webiopi().ready(
+			function() {
+
+		    	//コールバック
+		        var dummyCallBack = function(macro, args, response) {
+		        }
+
+
+				// Immediately call getAirconTimer macro to update the UI with current values
+				// "getAirconTimer" refers to macro name
+				// [] is an empty array, because getLightHours macro does not take any argument
+				// updateLightHours is the callback function, defined above
+				webiopi().callMacro("sendIr", "lightPcRoom.dat", dummyCallBack);
+
+				// Refresh GPIO buttons
+				// pass true to refresh repeatedly of false to refresh once
+				// これがないとマクロがwebiopiに登録されないから必要
+				webiopi().refreshGPIO(true);
+
+			});
+</script>
+
+
+</head>
+<body>
+	<div align="center">
+		<p>アクセス from IFTTT</p>
+	</div>
+
+
+	<a href="index.html">戻る</a>
+</body>
+</html>
+
+

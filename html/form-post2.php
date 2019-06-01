@@ -5,6 +5,7 @@
 <title>フォームからPOSTで送信されたデータを表示 - サンプル2 - PHP入門 - Webkaru</title>
 </head>
 <body>
+post
 <?php
   echo $_POST["onamae"] ."さんのメールアドレスは". $_POST["mail"] ."です。";
 ?>

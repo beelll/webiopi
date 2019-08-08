@@ -44,7 +44,12 @@
 						"そうしん",
 						function() {
 							// Arguments sent to the macro
-							var hours = [ $("#inputOn").val(),	$("#inputOff").val(), $("#airconTimerSW").prop("checked") ];
+							var hours = [ $("#inputOn").val(),
+								$("#inputOff").val(),
+								$("#airconTimerSW").prop("checked"),
+								$("#radioHeat").prop("checked"),
+								$("#radioCool").prop("checked"),
+								];
 							// Call the macro
 							// 引数：呼び出す関数名、渡す引数、コールバック
 							webiopi().callMacro("setAirconTimer", hours, updateAirconTimers);
@@ -91,7 +96,9 @@
 			<input type="checkbox" id="airconTimerSW"> <label for="airconTimerSW"><span></span></label>
 			<div id="swImg"></div>
 		</div>
-
+		<input type="radio" name="radio1" id="radioHeat" value="heat"> 暖房
+		<input type="radio" name="radio1" id="radioCool" value="cool" checked> 冷房
+		<br>
 		 ON時刻 : <input type="text" id="inputOn" /><br>
 		OFF時刻 : <input type="text" id="inputOff" />
 		<div id="controls"></div>

@@ -27,7 +27,7 @@ GPIO = webiopi.GPIO
 
 # Scheduling aircon control settings
 AIRCON_USE_TIMER = 'false'
-AIRCON_MODE = 0
+AIRCON_MODE = "0"
 AIRCON_ON_TIME  = datetime.time(5,30)
 AIRCON_OFF_TIME = datetime.time(7,15)
 AIRCON_HEAT_ON_TEMP = 16
@@ -166,7 +166,7 @@ def getAirconTimer():
     #動作モード（暖房、冷房、ドライ）を取得
     isHeat = "false"
     isCool = "false"
-    if (AIRCON_MODE == 0):
+    if (AIRCON_MODE == "0"):
         isHeat = "true"
         isCool = "false"
     else:
@@ -184,11 +184,11 @@ def setAirconTimer(on, off, sw, isHeat, isCool):
     #webiopi.debug(isCool)
 
     #動作モード（暖房、冷房、ドライ）を判定
-    mode = 0
+    mode = "0"
     if(isHeat == "true"):
-       mode = 0     #暖房
+       mode = "0"     #暖房
     else:
-       mode = 1     #冷房
+       mode = "1"     #冷房
 
     # Configファイルに保存
     inifile = configparser.ConfigParser()

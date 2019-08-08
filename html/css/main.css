@@ -9,6 +9,9 @@
 
 }
 
+body{
+	background: repeating-linear-gradient(to top, lightgray, lightgray 100px, white 100px, white 200px);
+}
 
 .largeButton button{
     font-size: 14pt;

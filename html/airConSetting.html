@@ -24,6 +24,15 @@
 					else{
 						$("#airconTimerSW").prop("checked", false);
 					}
+					if(hours[3] == "true"){		// 暖房
+						$("#radioHeat").prop("checked", true);
+						$("#radioCool").prop("checked", false);
+					}
+					else{	// 冷房
+						$("#radioHeat").prop("checked", false);
+						$("#radioCool").prop("checked", true);
+					}
+
 				}
 				var updateCurrentTemperature = function(macro, args, response) {
 					var temps = response.split(";");

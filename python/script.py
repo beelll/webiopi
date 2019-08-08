@@ -27,6 +27,7 @@ GPIO = webiopi.GPIO
 
 # Scheduling aircon control settings
 AIRCON_USE_TIMER = 'false'
+AIRCON_MODE = 0
 AIRCON_ON_TIME  = datetime.time(5,30)
 AIRCON_OFF_TIME = datetime.time(7,15)
 AIRCON_HEAT_ON_TEMP = 16
@@ -45,6 +46,7 @@ SECTION_AICRCONTIMER = 'AIRCONTIMER'
 KEY_ONTIME = 'onTime'
 KEY_OFFTIME = 'offTime'
 KEY_USETIMER = 'useTimer'
+KEY_MODE = 'mode'
 KEY_HEATONTEMP = 'heatOnTemp'
 KEY_COOLONTEMP = 'coolOnTemp'
 
@@ -76,7 +78,7 @@ def setup():
 
 # Read Config File
 def readIniFile():
-    global AIRCON_USE_TIMER, AIRCON_ON_TIME, AIRCON_OFF_TIME
+    global AIRCON_USE_TIMER, AIRCON_MODE, AIRCON_ON_TIME, AIRCON_OFF_TIME
 
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
@@ -90,6 +92,7 @@ def readIniFile():
     AIRCON_OFF_TIME = datetime.time(int(array_off[0]),int(array_off[1]))
 
     AIRCON_USE_TIMER = inifile.get(SECTION_AICRCONTIMER, KEY_USETIMER)
+    AIRCON_MODE = inifile.get(SECTION_AICRCONTIMER, KEY_MODE)
     AIRCON_HEAT_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_HEATONTEMP)
     AIRCON_COOL_ON_TEMP = inifile.get(SECTION_AICRCONTIMER, KEY_COOLONTEMP)
 
@@ -159,19 +162,39 @@ def sendIr(targetName):
 def getAirconTimer():
     # Config -> Global
     readIniFile()
-    return "%s;%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"),AIRCON_USE_TIMER)
+
+    #動作モード（暖房、冷房、ドライ）を取得
+    isHeat = "false"
+    isCool = "false"
+    if (AIRCON_MODE == 0):
+        isHeat = "true"
+        isCool = "false"
+    else:
+        isHeat = "false"
+        isCool = "true"
+
+    return "%s;%s;%s;%s;%s" % (AIRCON_ON_TIME.strftime("%H:%M"),AIRCON_OFF_TIME.strftime("%H:%M"),AIRCON_USE_TIMER,isHeat,isCool)
 
 @webiopi.macro
 def setAirconTimer(on, off, sw, isHeat, isCool):
-    webiopi.debug(on)
-    webiopi.debug(off)
-    webiopi.debug(sw)
-    webiopi.debug(isHeat)
-    webiopi.debug(isCool)
+    #webiopi.debug(on)
+    #webiopi.debug(off)
+    #webiopi.debug(sw)
+    #webiopi.debug(isHeat)
+    #webiopi.debug(isCool)
+
+    #動作モード（暖房、冷房、ドライ）を判定
+    mode = 0
+    if(isHeat == "true"):
+       mode = 0     #暖房
+    else:
+       mode = 1     #冷房
+
     # Configファイルに保存
     inifile = configparser.ConfigParser()
     inifile.read(INI_FILE_PASS, 'UTF-8')
     inifile.set(SECTION_AICRCONTIMER, KEY_USETIMER, sw)
+    inifile.set(SECTION_AICRCONTIMER, KEY_MODE, mode)
     inifile.set(SECTION_AICRCONTIMER, KEY_ONTIME, on)
     inifile.set(SECTION_AICRCONTIMER, KEY_OFFTIME, off)
     with open(INI_FILE_PASS, 'w', encoding='utf8') as file:
